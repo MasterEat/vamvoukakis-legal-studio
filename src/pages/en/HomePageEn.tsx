@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import heroImg from "@/assets/hero-law-office.jpg";
-import portraitImg from "@/assets/lawyer-portrait.jpg";
+import portraitImg from "../../../images/image1.webp";
 
 const practiceAreas = [
   { icon: Scale, title: "Civil Law", desc: "Family, inheritance, contract and property law with specialized expertise and a personal approach.", path: "/en/practice-areas" },
