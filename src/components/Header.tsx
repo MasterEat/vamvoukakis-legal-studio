@@ -56,9 +56,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-sm border-b border-accent/30"
-          : "bg-gradient-to-b from-background/85 to-transparent"
+        scrolled ? "bg-background/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
@@ -66,7 +64,7 @@ export default function Header() {
           <span className="font-heading text-sm md:text-base font-semibold text-foreground tracking-wide">
             {lang === "en" ? "Vamvoukakis Law Office" : lang === "de" ? "Kanzlei Vamvoukakis" : "Δ.Γ. Βαμβουκάκη"}
           </span>
-          <span className="text-[10px] md:text-xs text-accent tracking-widest uppercase font-body">
+          <span className="text-[10px] md:text-xs text-muted-foreground tracking-widest uppercase font-body">
             {lang === "en" ? "Attorneys at Law" : lang === "de" ? "Rechtsanwälte" : "Δικηγορικό Γραφείο"}
           </span>
         </Link>
