@@ -66,7 +66,7 @@ export default function ProfilePage() {
 
                 <h2 className="font-heading text-2xl text-foreground pt-4">Τοποθεσία</h2>
                 <div className="w-12 h-px bg-accent" />
-                <p>Γούναρη 5Α, Κεφαλάρι - Κηφισιά, Αθήνα</p>
+                <p>Πειραιώς 6, Ομόνοια, ΤΚ 10434, Αθήνα</p>
               </div>
             </div>
           </div>

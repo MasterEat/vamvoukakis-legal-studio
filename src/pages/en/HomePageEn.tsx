@@ -16,7 +16,7 @@ const practiceAreas = [
 export default function HomePageEn() {
   return (
     <Layout>
-      <SEOHead title="Vamvoukakis Law Office" description="Specialized legal services for individuals and businesses in Athens, Attica and the wider Athens area. Civil, Criminal, Commercial and Real Estate Law." canonical="/en" lang="en" hrefLangs={[{ lang: "el", href: "/" }, { lang: "en", href: "/en" }, { lang: "de", href: "/de" }]} />
+
 
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center">
@@ -31,7 +31,7 @@ export default function HomePageEn() {
               Vamvoukakis<br /><span className="italic font-normal">Law Office</span>
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Specialized legal services for individuals and businesses in Athens, Attica and the wider Athens area.
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild><Link to="/en/contact">Schedule a Consultation</Link></Button>
@@ -86,7 +86,7 @@ export default function HomePageEn() {
               <ul className="space-y-3 mb-8">
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Philipps-Universität Marburg, Germany</li>
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> LL.M in Civil Law, University of Athens</li>
-                <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Based in Athens, Attica</li>
+
               </ul>
               <Button variant="outline" asChild><Link to="/en/profile">Full Profile <ArrowRight size={14} /></Link></Button>
             </div>

@@ -29,7 +29,7 @@ export default function ProfilPage() {
                 <div className="flex gap-8">{["Griechisch", "Deutsch", "Englisch"].map((l) => <span key={l} className="text-foreground">{l}</span>)}</div>
                 <h2 className="font-heading text-2xl text-foreground pt-4">Standort</h2>
                 <div className="w-12 h-px bg-accent" />
-                <p>Gounari 5A, Kefalari - Kifissia, Athen</p>
+                <p>Pireos 6, Omonoia, 10434 Athen</p>
               </div>
             </div>
           </div>

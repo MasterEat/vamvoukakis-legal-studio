@@ -13,7 +13,7 @@ export default function TheFirmPageEn() {
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-foreground text-lg">Vamvoukakis Law Office was founded to deliver high-quality legal services built on academic excellence and practical experience.</p>
             <p>Our philosophy centers on building personal relationships of trust with each client. Every case is treated as unique, with full respect for the specific needs and expectations of each individual.</p>
-            <p>Based in Kefalari, Kifissia, we serve individuals and businesses across Attica, providing legal guidance in civil, criminal, commercial and real estate law.</p>
+            <p>Based in Omonoia, Athens, we serve individuals and businesses across Attica, providing legal guidance in civil, criminal, commercial and real estate law.</p>
             <h2 className="font-heading text-2xl text-foreground pt-8">Our Approach</h2>
             <div className="w-12 h-px bg-accent" />
             <p>We believe effective legal representation requires deep understanding of both the legal framework and the human element. Our studies in Germany and Greece provide a European perspective, while extensive experience ensures practical, reliable solutions.</p>
