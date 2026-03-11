@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import heroImg from "@/assets/hero-law-office.jpg";
-import portraitImg from "@/assets/lawyer-portrait.jpg";
+import portraitImg from "../../images/image1.webp";
 
 const practiceAreas = [
   { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο με εξειδίκευση και ανθρώπινη προσέγγιση.", path: "/astiko-dikaio" },
