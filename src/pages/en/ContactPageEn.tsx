@@ -1,4 +1,4 @@
-
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -7,6 +7,12 @@ import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
 export default function ContactPageEn() {
   return (
     <Layout>
+      <SEOHead
+        title="Contact | Vamvoukakis Legal Studio"
+        description="Contact details and contact form for Vamvoukakis Legal Studio."
+        canonical="/en/contact"
+        structuredData={getContactStructuredData("en")}
+      />
 
       <section className="section-padding bg-background">
         <div className="container-wide">
@@ -19,18 +25,32 @@ export default function ContactPageEn() {
                 Our office serves clients in Athens, Attica and the wider Athens metropolitan area,
                 while also accepting selected matters across Greece by prior arrangement.
               </p>
-              <div className="space-y-6 mb-10">
-
+              <div className="space-y-6 mb-10"></div>
             </div>
+
             <div>
               <div className="premium-card">
                 <h2 className="font-heading text-2xl mb-6">Contact Form</h2>
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                  <div><label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Full Name</label><input type="text" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" /></div>
-                  <div><label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Phone</label><input type="tel" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" /></div>
-                  <div><label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Email</label><input type="email" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" /></div>
-                  <div><label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Message</label><textarea rows={5} className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" /></div>
-                  <Button variant="default" size="lg" className="w-full">Send <ArrowRight size={14} /></Button>
+                  <div>
+                    <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Full Name</label>
+                    <input type="text" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                  </div>
+                  <div>
+                    <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Phone</label>
+                    <input type="tel" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                  </div>
+                  <div>
+                    <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Email</label>
+                    <input type="email" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                  </div>
+                  <div>
+                    <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Message</label>
+                    <textarea rows={5} className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" />
+                  </div>
+                  <Button variant="default" size="lg" className="w-full">
+                    Send <ArrowRight size={14} />
+                  </Button>
                 </form>
               </div>
             </div>

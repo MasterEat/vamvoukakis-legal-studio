@@ -1,4 +1,4 @@
-
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -7,7 +7,12 @@ import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
 export default function ContactPage() {
   return (
     <Layout>
-
+      <SEOHead
+        title="Επικοινωνία | Vamvoukakis Legal Studio"
+        description="Στοιχεία επικοινωνίας και φόρμα επικοινωνίας του Vamvoukakis Legal Studio."
+        canonical="/contact"
+        structuredData={getContactStructuredData("el")}
+      />
 
       <section className="section-padding bg-background">
         <div className="container-wide">
@@ -16,30 +21,25 @@ export default function ContactPage() {
               <div className="gold-divider-left mb-8" />
               <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-4">Επικοινωνία</h1>
               <p className="font-heading text-lg text-foreground mb-6">{contactDetails.officeName}</p>
-              <p className="text-muted-foreground font-body leading-relaxed mb-10">
-
-              </p>
+              <p className="text-muted-foreground font-body leading-relaxed mb-10"></p>
 
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
                   <MapPin size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Διεύθυνση</p>
-
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Τηλέφωνο</p>
-
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Email</p>
-
                   </div>
                 </div>
               </div>
