@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -11,7 +11,7 @@ export default function ContactPage() {
         title="Επικοινωνία | Vamvoukakis Legal Studio"
         description="Στοιχεία επικοινωνίας και φόρμα επικοινωνίας του Vamvoukakis Legal Studio."
         canonical="/contact"
-        structuredData={getContactStructuredData("el")}
+        structuredData={getContactStructuredData("el", "/epikoinonia")}
       />
 
       <section className="section-padding bg-background">
@@ -21,25 +21,40 @@ export default function ContactPage() {
               <div className="gold-divider-left mb-8" />
               <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-4">Επικοινωνία</h1>
               <p className="font-heading text-lg text-foreground mb-6">{contactDetails.officeName}</p>
-              <p className="text-muted-foreground font-body leading-relaxed mb-10"></p>
 
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
                   <MapPin size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Διεύθυνση</p>
+                    <p className="text-muted-foreground font-body">{contactDetails.addressLine}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Τηλέφωνο</p>
+                    <a href={contactDetails.telUri} className="text-muted-foreground font-body hover:text-accent transition-colors">
+                      {contactDetails.telephone}
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Email</p>
+                    <a href={contactDetails.emailUri} className="text-muted-foreground font-body hover:text-accent transition-colors break-all">
+                      {contactDetails.email}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Clock3 size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Ώρες Λειτουργίας</p>
+                    {contactDetails.officeHours.el.map((line) => (
+                      <p key={line} className="text-muted-foreground font-body">{line}</p>
+                    ))}
                   </div>
                 </div>
               </div>

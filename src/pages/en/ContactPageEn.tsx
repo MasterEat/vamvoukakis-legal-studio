@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -11,7 +11,7 @@ export default function ContactPageEn() {
         title="Contact | Vamvoukakis Legal Studio"
         description="Contact details and contact form for Vamvoukakis Legal Studio."
         canonical="/en/contact"
-        structuredData={getContactStructuredData("en")}
+        structuredData={getContactStructuredData("en", "/en/contact")}
       />
 
       <section className="section-padding bg-background">
@@ -21,11 +21,43 @@ export default function ContactPageEn() {
               <div className="gold-divider-left mb-8" />
               <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-4">Contact</h1>
               <p className="font-heading text-lg text-foreground mb-6">{contactDetails.officeName}</p>
-              <p className="text-muted-foreground font-body leading-relaxed mb-10">
-                Our office serves clients in Athens, Attica and the wider Athens metropolitan area,
-                while also accepting selected matters across Greece by prior arrangement.
-              </p>
-              <div className="space-y-6 mb-10"></div>
+
+              <div className="space-y-6 mb-10">
+                <div className="flex items-start gap-4">
+                  <MapPin size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Address</p>
+                    <p className="text-muted-foreground font-body">{contactDetails.addressLine}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Phone size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Phone</p>
+                    <a href={contactDetails.telUri} className="text-muted-foreground font-body hover:text-accent transition-colors">
+                      {contactDetails.telephone}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Mail size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Email</p>
+                    <a href={contactDetails.emailUri} className="text-muted-foreground font-body hover:text-accent transition-colors break-all">
+                      {contactDetails.email}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Clock3 size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Office Hours</p>
+                    {contactDetails.officeHours.en.map((line) => (
+                      <p key={line} className="text-muted-foreground font-body">{line}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div>

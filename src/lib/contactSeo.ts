@@ -94,6 +94,11 @@ export const contactDetails = {
   emailUri: EMAIL_URI,
   addressLine: ADDRESS_LINE,
   mapEmbedUrl: MAP_EMBED_URL,
+  officeHours: {
+    el: ["Δευτέρα – Παρασκευή, 09:00 – 21:00", "Μόνο κατόπιν ραντεβού"],
+    en: ["Monday – Friday, 09:00 – 21:00", "By appointment only"],
+    de: ["Montag – Freitag, 09:00 – 21:00", "Nur nach Terminvereinbarung"],
+  },
 };
 
 type Lang = "el" | "en" | "de";

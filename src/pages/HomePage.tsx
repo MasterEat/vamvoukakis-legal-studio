@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Building2, Briefcase, Home } from "lucide-react";
+import { ArrowRight, Scale, Building2, Briefcase, Home, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -215,15 +215,20 @@ export default function HomePage() {
       <section className="section-padding bg-primary">
         <div className="container-narrow text-center">
           <div className="w-16 h-px bg-accent mx-auto mb-8" />
-          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-6">
-            Επικοινωνήστε Μαζί Μας
-          </h2>
-
-          <p className="text-primary-foreground/70 font-body mb-2">+30 693 632 4806</p>
-          <p className="text-primary-foreground/70 font-body mb-10">emmanouil.vamvoukakis@outlook.com</p>
-          <Button variant="hero-outline" asChild>
-            <Link to="/epikoinonia">Κλείστε Ραντεβού <ArrowRight size={14} /></Link>
-          </Button>
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-6">Επικοινωνήστε Μαζί Μας</h2>
+          <div className="space-y-4 mb-10 max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 font-body"><span className="text-primary-foreground/55">Διεύθυνση:</span> {contactDetails.addressLine}</p>
+            <p className="text-primary-foreground/80 font-body"><span className="text-primary-foreground/55">Τηλέφωνο:</span> <a href={contactDetails.telUri} className="hover:text-accent transition-colors">{contactDetails.telephone}</a></p>
+            <p className="text-primary-foreground/80 font-body"><span className="text-primary-foreground/55">Email:</span> <a href={contactDetails.emailUri} className="hover:text-accent transition-colors break-all">{contactDetails.email}</a></p>
+            <div className="flex items-start justify-center gap-2 text-primary-foreground/80 font-body">
+              <Clock3 size={16} className="text-accent mt-1 shrink-0" />
+              <div>
+                <p><span className="text-primary-foreground/55">Ώρες Λειτουργίας:</span> {contactDetails.officeHours.el[0]}</p>
+                <p>{contactDetails.officeHours.el[1]}</p>
+              </div>
+            </div>
+          </div>
+          <Button variant="hero-outline" asChild><Link to="/epikoinonia">Κλείστε Ραντεβού <ArrowRight size={14} /></Link></Button>
         </div>
       </section>
     </Layout>
