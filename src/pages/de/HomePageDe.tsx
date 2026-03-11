@@ -16,7 +16,6 @@ const practiceAreas = [
 export default function HomePageDe() {
   return (
     <Layout>
-      <SEOHead title="Kanzlei Vamvoukakis" description="Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Athen und Attika. Zivilrecht, Strafrecht, Handelsrecht und Immobilienrecht." canonical="/de" lang="de" hrefLangs={[{ lang: "el", href: "/" }, { lang: "en", href: "/en" }, { lang: "de", href: "/de" }]} />
 
       <section className="relative min-h-[85vh] flex items-center">
         <div className="absolute inset-0">
@@ -30,7 +29,7 @@ export default function HomePageDe() {
               Kanzlei<br /><span className="italic font-normal">Vamvoukakis</span>
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Athen und Attika.
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild><Link to="/de/kontakt">Termin Vereinbaren</Link></Button>
@@ -80,7 +79,7 @@ export default function HomePageDe() {
               <ul className="space-y-3 mb-8">
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Philipps-Universität Marburg, Deutschland</li>
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> LL.M im Zivilrecht, Universität Athen</li>
-                <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Omonoia, Athen</li>
+
               </ul>
               <Button variant="outline" asChild><Link to="/de/profil">Vollständiges Profil <ArrowRight size={14} /></Link></Button>
             </div>
