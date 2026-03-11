@@ -29,6 +29,7 @@ const navItemsDe = [
 ];
 
 const HOME_PATHS = ["/", "/en", "/de"];
+const GLASS_HEADER_CLASS = "bg-[rgba(30,53,82,0.72)] backdrop-blur-xl border-b border-white/20 shadow-[0_12px_32px_rgba(9,16,28,0.28)]";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,25 +58,24 @@ export default function Header() {
   };
 
   const headerIsTransparent = isHomePage && !scrolled && !isOpen;
+  const useGlassStyle = !headerIsTransparent;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-500 ease-out ${
         headerIsTransparent
           ? "bg-transparent border-b border-transparent"
-          : isHomePage
-            ? "bg-[rgba(30,53,82,0.72)] backdrop-blur-xl border-b border-white/20 shadow-[0_12px_32px_rgba(9,16,28,0.28)]"
-            : "bg-background/95 backdrop-blur-sm border-b border-border shadow-sm"
+          : GLASS_HEADER_CLASS
       }`}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
         <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex flex-col">
-          <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-foreground"}`}>
+          <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
             {lang === "en" ? "Vamvoukakis Law Office" : lang === "de" ? "Kanzlei Vamvoukakis" : "Δ.Γ. Βαμβουκάκη"}
           </span>
           <span
             className={`text-[10px] md:text-xs tracking-widest uppercase font-body transition-colors duration-500 ${
-              headerIsTransparent ? "text-white/75" : "text-muted-foreground"
+              headerIsTransparent ? "text-white/75" : "text-slate-200/80"
             }`}
           >
             {lang === "en" ? "Attorneys at Law" : lang === "de" ? "Rechtsanwälte" : "Δικηγορικό Γραφείο"}
@@ -92,13 +92,13 @@ export default function Header() {
                   ? "text-accent"
                   : headerIsTransparent
                     ? "text-white/85"
-                    : "text-foreground/70"
+                    : "text-slate-100/85"
               }`}
             >
               {item.label}
             </Link>
           ))}
-          <div className={`flex items-center gap-2 ml-4 pl-4 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-border"}`}>
+          <div className={`flex items-center gap-2 ml-4 pl-4 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
             {(["el", "en", "de"] as const).map((l) => (
               <Link
                 key={l}
@@ -108,7 +108,7 @@ export default function Header() {
                     ? "text-accent font-semibold"
                     : headerIsTransparent
                       ? "text-white/65"
-                      : "text-foreground/50"
+                      : "text-slate-200/75"
                 }`}
               >
                 {l === "el" ? "ΕΛ" : l.toUpperCase()}
@@ -119,7 +119,7 @@ export default function Header() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-2 transition-colors duration-300 ${headerIsTransparent ? "text-white" : "text-foreground"}`}
+          className={`lg:hidden p-2 transition-colors duration-300 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -127,27 +127,27 @@ export default function Header() {
       </div>
 
       {isOpen && (
-        <div className={`lg:hidden backdrop-blur-xl border-t ${isHomePage ? "bg-[rgba(18,36,59,0.88)] border-white/20" : "bg-background/98 border-border"}`}>
+        <div className={`lg:hidden backdrop-blur-xl border-t ${useGlassStyle ? "bg-[rgba(18,36,59,0.88)] border-white/20" : "bg-transparent border-transparent"}`}>
           <nav className="container-wide py-8 flex flex-col gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={`text-sm tracking-widest uppercase font-body transition-colors hover:text-accent ${
-                  location.pathname === item.path ? "text-accent" : isHomePage ? "text-white/85" : "text-foreground/70"
+                  location.pathname === item.path ? "text-accent" : "text-white/85"
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            <div className={`flex items-center gap-4 pt-4 border-t ${isHomePage ? "border-white/20" : "border-border"}`}>
-              <Globe size={14} className={isHomePage ? "text-white/70" : "text-muted-foreground"} />
+            <div className="flex items-center gap-4 pt-4 border-t border-white/20">
+              <Globe size={14} className="text-white/70" />
               {(["el", "en", "de"] as const).map((l) => (
                 <Link
                   key={l}
                   to={langSwitchPaths[l]}
                   className={`text-xs tracking-widest uppercase font-body transition-colors hover:text-accent ${
-                    lang === l ? "text-accent font-semibold" : isHomePage ? "text-white/70" : "text-foreground/50"
+                    lang === l ? "text-accent font-semibold" : "text-white/70"
                   }`}
                 >
                   {l === "el" ? "Ελληνικά" : l === "en" ? "English" : "Deutsch"}
