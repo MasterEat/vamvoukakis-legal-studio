@@ -1,23 +1,22 @@
-
+import { MapPin, Phone, Mail, Clock3, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
 
 export default function ContactPage() {
   return (
     <Layout>
-
+      <SEOHead title="Επικοινωνία" description="Επικοινωνήστε με το Δικηγορικό Γραφείο Βαμβουκάκη. Πειραιώς 6, Ομόνοια, ΤΚ 10434. Κλείστε ραντεβού." canonical="/epikoinonia" />
 
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <div className="gold-divider-left mb-8" />
-              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-4">Επικοινωνία</h1>
-              <p className="font-heading text-lg text-foreground mb-6">{contactDetails.officeName}</p>
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Επικοινωνία</h1>
               <p className="text-muted-foreground font-body leading-relaxed mb-10">
-
+                Είμαστε στη διάθεσή σας για κάθε νομικό ερώτημα. Μη διστάσετε να επικοινωνήσετε μαζί μας για να κλείσετε ένα ραντεβού ή να συζητήσουμε
+                την υπόθεσή σας.
               </p>
 
               <div className="space-y-6 mb-10">
@@ -25,26 +24,35 @@ export default function ContactPage() {
                   <MapPin size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Διεύθυνση</p>
-
+                    <p className="text-muted-foreground font-body text-sm">Πειραιώς 6, Ομόνοια, ΤΚ 10434</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Phone size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Τηλέφωνο</p>
-
+                    <p className="text-muted-foreground font-body text-sm">+30 693 632 4806</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <Mail size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Email</p>
-
+                    <p className="text-muted-foreground font-body text-sm">emmanouil.vamvoukakis@outlook.com</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Clock3 size={20} className="text-accent mt-1 shrink-0" />
+                  <div>
+                    <p className="font-body font-medium text-foreground">Ώρες Λειτουργίας</p>
+                    <p className="text-muted-foreground font-body text-sm">Δευτέρα – Παρασκευή, 09:00 – 21:00</p>
+                    <p className="text-muted-foreground font-body text-sm">Μόνο κατόπιν ραντεβού</p>
                   </div>
                 </div>
               </div>
 
-
+              <div className="w-full h-64 bg-muted flex items-center justify-center">
+                <p className="text-muted-foreground font-body text-sm">Χάρτης — Πειραιώς 6, Ομόνοια, ΤΚ 10434</p>
               </div>
             </div>
 

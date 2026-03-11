@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
-import { contactDetails } from "@/lib/contactSeo";
 
 export default function Footer() {
   const location = useLocation();
@@ -9,7 +8,7 @@ export default function Footer() {
   const t = {
     el: {
       firm: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
-
+      desc: "Εξειδικευμένες νομικές υπηρεσίες στην Ομόνοια και στην Αθήνα.",
       quickLinks: "Σύνδεσμοι",
       contact: "Επικοινωνία",
       legal: "Νομικά",
@@ -21,7 +20,9 @@ export default function Footer() {
       privacy: "Πολιτική Απορρήτου",
       cookies: "Cookies",
       rights: "Με επιφύλαξη παντός δικαιώματος.",
-
+      address: "Πειραιώς 6, Ομόνοια, ΤΚ 10434",
+      officeHoursLabel: "Ώρες Λειτουργίας",
+      officeHours: ["Δευτέρα – Παρασκευή, 09:00 – 21:00", "Μόνο κατόπιν ραντεβού"],
       links: [
         { label: "Αρχική", path: "/" },
         { label: "Το Γραφείο", path: "/to-grafeio" },
@@ -36,7 +37,7 @@ export default function Footer() {
     },
     en: {
       firm: "Vamvoukakis Law Office",
-
+      desc: "Specialized legal services in Omonoia and Athens.",
       quickLinks: "Quick Links",
       contact: "Contact",
       legal: "Legal",
@@ -49,7 +50,8 @@ export default function Footer() {
       cookies: "Cookies",
       rights: "All rights reserved.",
       address: "Pireos 6, Omonoia, 10434 Athens",
-
+      officeHoursLabel: "Office Hours",
+      officeHours: ["Monday – Friday, 09:00 – 21:00", "By appointment only"],
       links: [
         { label: "Home", path: "/en" },
         { label: "The Firm", path: "/en/the-firm" },
@@ -64,7 +66,7 @@ export default function Footer() {
     },
     de: {
       firm: "Kanzlei Vamvoukakis",
-
+      desc: "Spezialisierte Rechtsdienstleistungen in Omonoia und Athen.",
       quickLinks: "Links",
       contact: "Kontakt",
       legal: "Rechtliches",
@@ -77,7 +79,8 @@ export default function Footer() {
       cookies: "Cookies",
       rights: "Alle Rechte vorbehalten.",
       address: "Pireos 6, Omonoia, 10434 Athen",
-
+      officeHoursLabel: "Öffnungszeiten",
+      officeHours: ["Montag – Freitag, 09:00 – 21:00", "Nur nach Terminvereinbarung"],
       links: [
         { label: "Startseite", path: "/de" },
         { label: "Kanzlei", path: "/de/kanzlei" },
@@ -141,7 +144,17 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-accent shrink-0" />
-
+                <span className="text-sm text-primary-foreground/60 font-body">+30 693 632 4806</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={16} className="text-accent shrink-0" />
+                <span className="text-sm text-primary-foreground/60 font-body">emmanouil.vamvoukakis@outlook.com</span>
+              </li>
+              <li className="text-sm text-primary-foreground/60 font-body pl-7">
+                <p className="font-medium text-primary-foreground/80">{c.officeHoursLabel}</p>
+                {c.officeHours.map((line) => (
+                  <span key={line} className="block">{line}</span>
+                ))}
               </li>
             </ul>
           </div>
