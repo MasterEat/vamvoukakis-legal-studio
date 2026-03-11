@@ -13,7 +13,7 @@ export default function KanzleiPage() {
           <div className="space-y-8 text-muted-foreground font-body leading-relaxed">
             <p className="text-foreground text-lg">Die Kanzlei Vamvoukakis wurde gegründet, um hochwertige Rechtsdienstleistungen zu erbringen, die auf akademischer Exzellenz und praktischer Erfahrung basieren.</p>
             <p>Unsere Philosophie konzentriert sich auf den Aufbau persönlicher Vertrauensbeziehungen mit jedem Mandanten. Jeder Fall wird als einzigartig behandelt, mit vollem Respekt für die spezifischen Bedürfnisse.</p>
-            <p>Mit Sitz in Kefalari, Kifissia, betreuen wir Privatpersonen und Unternehmen in ganz Attika und bieten Rechtsberatung im Zivil-, Straf-, Handels- und Immobilienrecht.</p>
+            <p>Mit Sitz in Omonoia, Athen, betreuen wir Privatpersonen und Unternehmen in ganz Attika und bieten Rechtsberatung im Zivil-, Straf-, Handels- und Immobilienrecht.</p>
             <h2 className="font-heading text-2xl text-foreground pt-8">Werte</h2>
             <div className="w-12 h-px bg-accent" />
             <ul className="space-y-3">

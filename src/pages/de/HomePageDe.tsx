@@ -16,7 +16,7 @@ const practiceAreas = [
 export default function HomePageDe() {
   return (
     <Layout>
-      <SEOHead title="Kanzlei Vamvoukakis" description="Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Kifissia und Athen. Zivilrecht, Strafrecht, Handelsrecht und Immobilienrecht." canonical="/de" lang="de" hrefLangs={[{ lang: "el", href: "/" }, { lang: "en", href: "/en" }, { lang: "de", href: "/de" }]} />
+      <SEOHead title="Kanzlei Vamvoukakis" description="Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Athen und Attika. Zivilrecht, Strafrecht, Handelsrecht und Immobilienrecht." canonical="/de" lang="de" hrefLangs={[{ lang: "el", href: "/" }, { lang: "en", href: "/en" }, { lang: "de", href: "/de" }]} />
 
       <section className="relative min-h-[85vh] flex items-center">
         <div className="absolute inset-0">
@@ -30,7 +30,7 @@ export default function HomePageDe() {
               Kanzlei<br /><span className="italic font-normal">Vamvoukakis</span>
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Kifissia und Athen.
+              Spezialisierte Rechtsdienstleistungen für Privatpersonen und Unternehmen in Athen und Attika.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild><Link to="/de/kontakt">Termin Vereinbaren</Link></Button>
@@ -80,7 +80,7 @@ export default function HomePageDe() {
               <ul className="space-y-3 mb-8">
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Philipps-Universität Marburg, Deutschland</li>
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> LL.M im Zivilrecht, Universität Athen</li>
-                <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Kefalari, Kifissia</li>
+                <li className="text-muted-foreground font-body text-sm flex items-start gap-2"><span className="text-accent mt-1">—</span> Omonoia, Athen</li>
               </ul>
               <Button variant="outline" asChild><Link to="/de/profil">Vollständiges Profil <ArrowRight size={14} /></Link></Button>
             </div>
@@ -92,8 +92,8 @@ export default function HomePageDe() {
         <div className="container-narrow text-center">
           <div className="w-16 h-px bg-accent mx-auto mb-8" />
           <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-6">Kontakt</h2>
-          <p className="text-primary-foreground/70 font-body mb-4">Gounari 5A, Kefalari - Kifissia, Athen</p>
-          <p className="text-primary-foreground/70 font-body mb-10">info@advocat.gr</p>
+          <p className="text-primary-foreground/70 font-body mb-4">Pireos 6, Omonoia, 10434 Athen</p>
+          <p className="text-primary-foreground/70 font-body mb-10">emmanouil.vamvoukakis@outlook.com</p>
           <Button variant="hero-outline" asChild><Link to="/de/kontakt">Termin Vereinbaren <ArrowRight size={14} /></Link></Button>
         </div>
       </section>
