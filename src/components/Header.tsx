@@ -60,13 +60,21 @@ export default function Header() {
       }`}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex flex-col">
-          <span className="font-heading text-sm md:text-base font-semibold text-foreground tracking-wide">
-            {lang === "en" ? "Vamvoukakis Law Office" : lang === "de" ? "Kanzlei Vamvoukakis" : "Δ.Γ. Βαμβουκάκη"}
-          </span>
-          <span className="text-[10px] md:text-xs text-muted-foreground tracking-widest uppercase font-body">
-            {lang === "en" ? "Attorneys at Law" : lang === "de" ? "Rechtsanwälte" : "Δικηγορικό Γραφείο"}
-          </span>
+        <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex items-center gap-3">
+          <img
+            src="/images/logo.webp"
+            alt="Vamvoukakis Law Office logo"
+            className="h-10 w-10 md:h-12 md:w-12 object-contain"
+            loading="eager"
+          />
+          <div className="flex flex-col">
+            <span className="font-heading text-sm md:text-base font-semibold text-foreground tracking-wide">
+              {lang === "en" ? "Vamvoukakis Law Office" : lang === "de" ? "Kanzlei Vamvoukakis" : "Δ.Γ. Βαμβουκάκη"}
+            </span>
+            <span className="text-[10px] md:text-xs text-muted-foreground tracking-widest uppercase font-body">
+              {lang === "en" ? "Attorneys at Law" : lang === "de" ? "Rechtsanwälte" : "Δικηγορικό Γραφείο"}
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
