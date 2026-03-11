@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import heroImg from "@/assets/hero-law-office.jpg";
 import portraitImg from "../../images/image1.webp";
+import { contactDetails } from "@/lib/contactSeo";
 
 const practiceAreas = [
   { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο με εξειδίκευση και ανθρώπινη προσέγγιση.", path: "/astiko-dikaio" },
@@ -30,15 +31,24 @@ const structuredData = {
   "@type": "LegalService",
   name: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
   url: "https://advocat.gr",
+  telephone: contactDetails.telephone,
+  email: contactDetails.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Γούναρη 5Α",
-    addressLocality: "Κεφαλάρι, Κηφισιά",
+    streetAddress: "Πειραιώς 6, Ομόνοια",
+    addressLocality: "Αθήνα",
     addressRegion: "Αττική",
-    postalCode: "14562",
+    postalCode: "10434",
     addressCountry: "GR",
   },
-  areaServed: ["Κηφισιά", "Βόρεια Προάστια", "Αθήνα"],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "21:00",
+  },
+  areaServed: ["Αθήνα", "Αττική"],
+  serviceArea: ["Αθήνα", "Αττική"],
 };
 
 export default function HomePage() {
@@ -46,7 +56,7 @@ export default function HomePage() {
     <Layout>
       <SEOHead
         title="Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ"
-        description="Εξειδικευμένες νομικές υπηρεσίες για ιδιώτες και επιχειρήσεις στην Κηφισιά, στα Βόρεια Προάστια και στην Αθήνα. Αστικό, Ποινικό, Εμπορικό Δίκαιο και Δίκαιο Ακινήτων."
+        description="Εξειδικευμένες νομικές υπηρεσίες για ιδιώτες και επιχειρήσεις στην Αθήνα, στην Αττική και στην ευρύτερη περιοχή Αθηνών. Αστικό, Ποινικό, Εμπορικό Δίκαιο και Δίκαιο Ακινήτων."
         canonical="/"
         structuredData={structuredData}
         hrefLangs={[
@@ -70,7 +80,7 @@ export default function HomePage() {
               <span className="italic font-normal">Βαμβουκάκη Εμμανουήλ</span>
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Εξειδικευμένες νομικές υπηρεσίες για ιδιώτες και επιχειρήσεις στην Κηφισιά, στα Βόρεια Προάστια και στην Αθήνα.
+              Εξειδικευμένες νομικές υπηρεσίες για ιδιώτες και επιχειρήσεις στην Αθήνα, στην Αττική και στην ευρύτερη περιοχή Αθηνών.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild>
@@ -149,7 +159,7 @@ export default function HomePage() {
                   <span className="text-accent mt-1">—</span> LL.M Αστικού Δικαίου, Πανεπιστήμιο Αθηνών
                 </li>
                 <li className="text-muted-foreground font-body text-sm flex items-start gap-2">
-                  <span className="text-accent mt-1">—</span> Κεφαλάρι, Κηφισιά
+                  <span className="text-accent mt-1">—</span> Αθήνα, Αττική
                 </li>
               </ul>
               <Button variant="outline" asChild>
@@ -215,9 +225,9 @@ export default function HomePage() {
           <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-primary-foreground mb-6">
             Επικοινωνήστε Μαζί Μας
           </h2>
-          <p className="text-primary-foreground/70 font-body mb-4">Γούναρη 5Α, Κεφαλάρι - Κηφισιά</p>
-          <p className="text-primary-foreground/70 font-body mb-2">+30 210 XXX XXXX</p>
-          <p className="text-primary-foreground/70 font-body mb-10">info@advocat.gr</p>
+          <p className="text-primary-foreground/70 font-body mb-4">Πειραιώς 6, Ομόνοια, 10434 Αθήνα</p>
+          <p className="text-primary-foreground/70 font-body mb-2">+30 693 632 4806</p>
+          <p className="text-primary-foreground/70 font-body mb-10">emmanouil.vamvoukakis@outlook.com</p>
           <Button variant="hero-outline" asChild>
             <Link to="/epikoinonia">Κλείστε Ραντεβού <ArrowRight size={14} /></Link>
           </Button>
