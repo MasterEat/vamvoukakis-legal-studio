@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock3, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 export default function ContactPageEn() {
   return (
     <Layout>
-      <SEOHead title="Contact" description="Contact Vamvoukakis Law Office. 5A Gounari, Kefalari - Kifissia. Schedule a consultation." canonical="/en/contact" lang="en" />
+      <SEOHead title="Contact" description="Contact Vamvoukakis Law Office. Pireos 6, Omonoia, 10434 Athens. Schedule a consultation." canonical="/en/contact" lang="en" />
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -15,11 +15,12 @@ export default function ContactPageEn() {
               <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Contact</h1>
               <p className="text-muted-foreground font-body leading-relaxed mb-10">We are at your disposal for any legal inquiry. Do not hesitate to contact us to schedule a consultation.</p>
               <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4"><MapPin size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Address</p><p className="text-muted-foreground font-body text-sm">5A Gounari, Kefalari - Kifissia</p></div></div>
-                <div className="flex items-start gap-4"><Phone size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Phone</p><p className="text-muted-foreground font-body text-sm">+30 210 XXX XXXX</p></div></div>
-                <div className="flex items-start gap-4"><Mail size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Email</p><p className="text-muted-foreground font-body text-sm">info@advocat.gr</p></div></div>
+                <div className="flex items-start gap-4"><MapPin size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Address</p><p className="text-muted-foreground font-body text-sm">Pireos 6, Omonoia, 10434 Athens</p></div></div>
+                <div className="flex items-start gap-4"><Phone size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Phone</p><p className="text-muted-foreground font-body text-sm">+30 693 632 4806</p></div></div>
+                <div className="flex items-start gap-4"><Mail size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Email</p><p className="text-muted-foreground font-body text-sm">emmanouil.vamvoukakis@outlook.com</p></div></div>
+                <div className="flex items-start gap-4"><Clock3 size={20} className="text-accent mt-1 shrink-0" /><div><p className="font-body font-medium text-foreground">Office Hours</p><p className="text-muted-foreground font-body text-sm">Monday – Friday, 09:00 – 21:00</p><p className="text-muted-foreground font-body text-sm">By appointment only</p></div></div>
               </div>
-              <div className="w-full h-64 bg-muted flex items-center justify-center"><p className="text-muted-foreground font-body text-sm">Map — Google Maps Embed</p></div>
+              <div className="w-full h-64 bg-muted flex items-center justify-center"><p className="text-muted-foreground font-body text-sm">Map — Pireos 6, Omonoia, 10434 Athens</p></div>
             </div>
             <div>
               <div className="premium-card">
