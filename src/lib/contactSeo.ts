@@ -8,6 +8,7 @@ const EMAIL = "emmanouil.vamvoukakis@outlook.com";
 const EMAIL_URI = "mailto:emmanouil.vamvoukakis@outlook.com";
 const ADDRESS_LINE = "Πειραιώς 6, Ομόνοια, ΤΚ 10434, Αθήνα, Αττική, Ελλάδα";
 const MAP_QUERY = "Πειραιώς 6, Ομόνοια, ΤΚ 10434, Αθήνα";
+const DIRECTIONS_URL = "https://www.google.com/maps/search/?api=1&query=Πειραιώς+6+Ομόνοια+Αθήνα";
 const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`;
 
 const BUSINESS_ID = `${BASE_URL}/#legalservice`;
@@ -48,6 +49,8 @@ const sharedBusinessSchema = {
     addressCountry: "GR",
   },
   openingHoursSpecification,
+  hasMap: DIRECTIONS_URL,
+  map: DIRECTIONS_URL,
   areaServed: [
     { "@type": "City", name: "Αθήνα" },
     { "@type": "AdministrativeArea", name: "Αττική" },
@@ -94,6 +97,7 @@ export const contactDetails = {
   emailUri: EMAIL_URI,
   addressLine: ADDRESS_LINE,
   mapEmbedUrl: MAP_EMBED_URL,
+  directionsUrl: DIRECTIONS_URL,
   officeHours: {
     el: ["Δευτέρα – Παρασκευή, 09:00 – 21:00", "Μόνο κατόπιν ραντεβού"],
     en: ["Monday – Friday, 09:00 – 21:00", "By appointment only"],

@@ -84,7 +84,7 @@ export default function Footer() {
   const c = t[lang];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer id="site-footer" className="bg-primary text-primary-foreground">
       <div className="container-wide section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="lg:col-span-1">

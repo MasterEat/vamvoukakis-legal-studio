@@ -2,6 +2,7 @@ import { ArrowRight, Mail, MapPin, Phone, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import DirectionsButton from "@/components/DirectionsButton";
 import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
 
 export default function ContactPage() {
@@ -58,6 +59,8 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
+
+              <DirectionsButton />
             </div>
 
             <div>
@@ -85,6 +88,22 @@ export default function ContactPage() {
                   </Button>
                 </form>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-16 md:mt-20">
+            <div className="max-w-3xl mb-8">
+              <h2 className="font-heading text-2xl md:text-3xl mb-3">Τοποθεσία Γραφείου</h2>
+              <p className="text-muted-foreground font-body">Πειραιώς 6, Ομόνοια, Αθήνα · +30 693 632 4806 · emmanouil.vamvoukakis@outlook.com</p>
+            </div>
+            <div className="overflow-hidden rounded-md border border-border shadow-[0_18px_44px_-32px_rgba(0,0,0,0.9)]">
+              <iframe
+                src={contactDetails.mapEmbedUrl}
+                title="Vamvoukakis Law Office map"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-[300px] w-full md:h-[420px]"
+              />
             </div>
           </div>
         </div>

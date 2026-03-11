@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import { matchPath, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import StickyCallButton from "./StickyCallButton";
+import FloatingContactWidget from "./FloatingContactWidget";
 
 interface LayoutProps {
   children: ReactNode;
@@ -62,6 +64,8 @@ export default function Layout({ children }: LayoutProps) {
       )}
 
       <main className="flex-1">{children}</main>
+      <FloatingContactWidget />
+      <StickyCallButton />
       <Footer />
     </div>
   );
