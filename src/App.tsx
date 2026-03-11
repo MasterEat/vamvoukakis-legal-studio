@@ -12,6 +12,7 @@ import PracticeAreasPage from "./pages/PracticeAreasPage";
 import { CivilLawPage, CriminalLawPage, CommercialLawPage, RealEstateLawPage } from "./pages/PracticeDetailPage";
 import DecisionsPage from "./pages/DecisionsPage";
 import ArticlesPage from "./pages/ArticlesPage";
+import ArticleDetailPage from "./pages/ArticleDetailPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import CookiesPage from "./pages/CookiesPage";
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/dikaio-akiniton" element={<RealEstateLawPage />} />
             <Route path="/apofaseis" element={<DecisionsPage />} />
             <Route path="/arthra" element={<ArticlesPage />} />
+            <Route path="/arthra/:slug" element={<ArticleDetailPage />} />
             <Route path="/epikoinonia" element={<ContactPage />} />
             <Route path="/politiki-aporritou" element={<PrivacyPage />} />
             <Route path="/cookies" element={<CookiesPage />} />
