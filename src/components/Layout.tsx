@@ -20,7 +20,7 @@ const BANNER_CONFIG: { path: string; content: BannerContent }[] = [
   { path: "/emporiko-dikaio", content: { title: "Εμπορικό Δίκαιο", subtitle: "Σύγχρονες λύσεις για εμπορικές σχέσεις, συμβάσεις και εταιρική δραστηριότητα." } },
   { path: "/dikaio-akiniton", content: { title: "Δίκαιο Ακινήτων", subtitle: "Ολοκληρωμένη νομική υποστήριξη σε αγοραπωλησίες, μισθώσεις και επενδύσεις." } },
   { path: "/apofaseis", content: { title: "Αποφάσεις", subtitle: "Ενδεικτική νομολογιακή εμπειρία με έμφαση στην ουσία και το αποτέλεσμα." } },
-  { path: "/arthra", content: { title: "Άρθρα", subtitle: "Σύντομες νομικές αναλύσεις για θέματα που απασχολούν πολίτες και επιχειρήσεις." } },
+  { path: "/arthra", content: { title: "Νομικά Άρθρα", subtitle: "Σύντομες νομικές αναλύσεις για θέματα που απασχολούν πολίτες και επιχειρήσεις." } },
   { path: "/epikoinonia", content: { title: "Επικοινωνία", subtitle: "Είμαστε στη διάθεσή σας για εμπιστευτική νομική συμβουλή κατόπιν ραντεβού." } },
   { path: "/politiki-aporritou", content: { title: "Πολιτική Απορρήτου", subtitle: "Υπεύθυνη επεξεργασία δεδομένων με διαφάνεια και πλήρη συμμόρφωση." } },
   { path: "/cookies", content: { title: "Πολιτική Cookies", subtitle: "Πληροφορίες για την ασφαλή και ορθή χρήση cookies στον ιστότοπο." } },

@@ -9,7 +9,6 @@ export default function ArticlesPage() {
 
   return (
     <Layout>
-      <SEOHead title="Άρθρα" description="Νομικά άρθρα, αναλύσεις και ενημέρωση για τρέχοντα νομοθετικά θέματα από το Δικηγορικό Γραφείο Βαμβουκάκη." canonical="/arthra" />
 
       <section className="section-padding bg-background">
         <div className="container-wide">
@@ -17,8 +16,7 @@ export default function ArticlesPage() {
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Νομικά Άρθρα</h1>
             <p className="text-muted-foreground font-body leading-relaxed">
-              Νομικά άρθρα και αναλύσεις για τρέχοντα ζητήματα δικαίου,
-              με στόχο την ενημέρωση και την κατανόηση σύνθετων νομικών θεμάτων.
+
             </p>
           </div>
 
