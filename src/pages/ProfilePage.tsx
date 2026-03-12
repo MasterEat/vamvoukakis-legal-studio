@@ -6,54 +6,58 @@ import SEOHead from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import portraitImg from "../../images/image2.webp";
 
-const experienceAreas = [
+const academicMilestones = [
   {
-    title: "Ανεξάρτητη Δικηγορική Πρακτική",
-    description:
-      "Συστηματική υποστήριξη φυσικών προσώπων και επιχειρήσεων με προσωπική ευθύνη χειρισμού σε κάθε στάδιο της υπόθεσης.",
+    title: "Σπουδές Νομικής στη Γερμανία",
+    details: "Philipps-Universität Marburg",
   },
   {
-    title: "Υποθέσεις Αστικού Δικαίου",
-    description:
-      "Αντιμετώπιση σύνθετων ιδιωτικών διαφορών με έμφαση στη νομική ακρίβεια, τη σαφή στρατηγική και την ουσιαστική προστασία συμφερόντων.",
+    title: "Νομική εκπαίδευση στη Φρανκφούρτη",
+    details: "Πρακτική και ακαδημαϊκή εμβάθυνση στη γερμανική νομική παράδοση",
   },
   {
-    title: "Συμβάσεις & Νομικός Έλεγχος",
-    description:
-      "Σύνταξη, διαπραγμάτευση και έλεγχος συμβάσεων με πρόβλεψη νομικών κινδύνων και τεκμηριωμένη καθοδήγηση.",
+    title: "LL.M Αστικού Δικαίου",
+    details: "Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών",
+  },
+];
+
+const professionalActivity = [
+  {
+    title: "Δικηγόρος από το 2002",
+    description: "Συνεχής άσκηση της δικηγορίας με εστίαση στην υπεύθυνη νομική υποστήριξη υποθέσεων ιδιωτικού δικαίου.",
   },
   {
-    title: "Ακίνητα & Μεταβιβάσεις",
-    description:
-      "Νομική υποστήριξη σε αγοραπωλησίες, εμπράγματα δικαιώματα και συνοδευτικές διαδικασίες ακινήτων.",
+    title: "Ανεξάρτητη άσκηση δικηγορίας από το 2003",
+    description: "Προσωπικός χειρισμός κάθε υπόθεσης, με άμεση επικοινωνία, διακριτικότητα και στρατηγική συνέπεια.",
   },
   {
-    title: "Μισθωτικές Σχέσεις",
+    title: "Πολυετής πρακτική ενασχόληση",
     description:
-      "Χειρισμός θεμάτων εμπορικών και αστικών μισθώσεων, από τη σύναψη έως την επίλυση διαφορών.",
+      "Εμπειρία σε συμβάσεις, μεταβιβάσεις ακινήτων, μισθώσεις, οικογενειακές και κληρονομικές υποθέσεις με έμφαση στην ουσία κάθε διαφοράς.",
   },
-  {
-    title: "Οικογενειακό & Κληρονομικό Δίκαιο",
-    description:
-      "Διακριτική και μεθοδική διαχείριση υποθέσεων οικογενειακού και κληρονομικού δικαίου με σεβασμό στις προσωπικές ισορροπίες.",
-  },
-  {
-    title: "Νομική Συμβουλευτική",
-    description:
-      "Σταθερή συμβουλευτική παρουσία με πρακτικές λύσεις, σαφή ενημέρωση και προληπτική νομική θωράκιση.",
-  },
+];
+
+const legalAreas = [
+  "Αστικό Δίκαιο",
+  "Συμβάσεις",
+  "Μεταβιβάσεις Ακινήτων",
+  "Μισθώσεις",
+  "Νομική Υποστήριξη Ακινήτων",
+  "Οικογενειακό Δίκαιο",
+  "Κληρονομικό Δίκαιο",
+  "Νομικές Συμβουλές",
 ];
 
 const profileStructuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Εμμανουήλ Βαμβουκάκης",
-  jobTitle: "Δικηγόρος",
+  jobTitle: "Δικηγόρος – LL.M Αστικού Δικαίου",
   description:
-    "Δικηγόρος με διεθνή ακαδημαϊκή κατάρτιση και εστίαση στο αστικό δίκαιο, τις συμβάσεις, τα ακίνητα και τη νομική συμβουλευτική.",
+    "Δικηγόρος με διεθνή ακαδημαϊκή κατάρτιση, πολυετή εμπειρία στο ιδιωτικό αστικό δίκαιο και εξατομικευμένη νομική υποστήριξη.",
   url: "https://advocat.gr/viografiko",
   image: "https://advocat.gr/images/image2.webp",
-  knowsLanguage: ["el", "de", "en"],
+  knowsLanguage: ["Ελληνικά", "Γερμανικά", "Αγγλικά"],
   alumniOf: [
     {
       "@type": "CollegeOrUniversity",
@@ -64,10 +68,6 @@ const profileStructuredData = {
       name: "Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών",
     },
   ],
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "LL.M Αστικού Δικαίου",
-  },
   memberOf: {
     "@type": "Organization",
     name: "Δικηγορικός Σύλλογος Αθηνών",
@@ -109,7 +109,7 @@ export default function ProfilePage() {
     <Layout>
       <SEOHead
         title="Βιογραφικό"
-        description="Ο Εμμανουήλ Βαμβουκάκης είναι δικηγόρος με διεθνή ακαδημαϊκή πορεία, πολυετή εμπειρία στο αστικό δίκαιο και προσωπική προσέγγιση σε κάθε υπόθεση."
+        description="Ο Εμμανουήλ Βαμβουκάκης είναι δικηγόρος με διεθνή ακαδημαϊκή πορεία, πολυετή εμπειρία στο ιδιωτικό αστικό δίκαιο και προσωπική, μεθοδική προσέγγιση σε κάθε υπόθεση."
         canonical="/viografiko"
         structuredData={profileStructuredData}
       />
@@ -118,28 +118,34 @@ export default function ProfilePage() {
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
             <div className="lg:col-span-2">
-              <img src={portraitImg} alt="Εμμανουήλ Βαμβουκάκης" className="w-full max-w-sm mx-auto lg:mx-0 aspect-[3/4] object-cover sticky top-28" loading="lazy" />
+              <img
+                src={portraitImg}
+                alt="Εμμανουήλ Βαμβουκάκης"
+                className="w-full max-w-sm mx-auto lg:mx-0 aspect-[3/4] object-cover sticky top-28"
+                loading="lazy"
+              />
             </div>
+
             <div className="lg:col-span-3">
               <div className="gold-divider-left mb-8" />
               <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-2">Εμμανουήλ Βαμβουκάκης</h1>
-              <p className="text-xs tracking-widest uppercase font-body text-accent mb-10">Rechtsanwalt · Δικηγόρος</p>
+              <p className="text-xs tracking-widest uppercase font-body text-accent mb-10">Δικηγόρος – LL.M Αστικού Δικαίου</p>
 
               <div className="space-y-10 text-muted-foreground font-body leading-relaxed">
                 <section className="space-y-5">
                   <h2 className="font-heading text-2xl text-foreground">Επαγγελματικό Προφίλ</h2>
                   <div className="w-12 h-px bg-accent" />
                   <p className="text-foreground text-lg">
-                    Ο Εμμανουήλ Βαμβουκάκης ασκεί τη δικηγορία επί σειρά ετών, με σταθερή προσήλωση στην προσωπική διαχείριση κάθε υπόθεσης και
-                    στην ουσιαστική προστασία των συμφερόντων των εντολέων του.
+                    Ο Εμμανουήλ Βαμβουκάκης διαθέτει διεθνή ακαδημαϊκή κατάρτιση και πολυετή δικηγορική εμπειρία, με διαρκή εστίαση στο ιδιωτικό
+                    αστικό δίκαιο και στην υπεύθυνη εκπροσώπηση φυσικών προσώπων και επιχειρήσεων.
                   </p>
                   <p>
-                    Η επαγγελματική του προσέγγιση στηρίζεται στην εμπιστοσύνη, στη μεθοδική νομική ανάλυση και στη διακριτικότητα, στοιχεία που
-                    θεωρούνται κρίσιμα για τη συνεπή και αποτελεσματική άσκηση της δικηγορίας.
+                    Η άσκηση της δικηγορίας βασίζεται σε προσωπική ενασχόληση με κάθε υπόθεση, σε μεθοδική προετοιμασία και σε σαφή στρατηγική
+                    κατεύθυνση, ώστε η νομική υποστήριξη να ανταποκρίνεται ουσιαστικά στις ανάγκες του εντολέα.
                   </p>
                   <p>
-                    Με διεθνές ακαδημαϊκό υπόβαθρο και εμβάθυνση στο αστικό δίκαιο, παρέχει υψηλού επιπέδου νομική εκπροσώπηση και συμβουλευτική
-                    καθοδήγηση σε υποθέσεις ιδιωτικού δικαίου.
+                    Με έμφαση στην ακρίβεια, τη συνέπεια και την ποιότητα της νομικής συμβουλής, παρέχεται εξατομικευμένη καθοδήγηση από το πρώτο
+                    στάδιο αξιολόγησης έως την ολοκλήρωση της υπόθεσης.
                   </p>
                 </section>
 
@@ -147,29 +153,24 @@ export default function ProfilePage() {
                   <h2 className="font-heading text-2xl text-foreground">Ακαδημαϊκή Κατάρτιση</h2>
                   <div className="w-12 h-px bg-accent" />
                   <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <span className="text-accent mt-1">—</span>
-                      <div>
-                        <p className="text-foreground font-medium">Σπουδές Νομικής στη Γερμανία</p>
-                        <p className="text-sm">Philipps-Universität Marburg</p>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-accent mt-1">—</span>
-                      <div>
-                        <p className="text-foreground font-medium">LL.M στο Αστικό Δίκαιο</p>
-                        <p className="text-sm">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
-                      </div>
-                    </li>
+                    {academicMilestones.map((item) => (
+                      <li key={item.title} className="flex items-start gap-3">
+                        <span className="text-accent mt-1">—</span>
+                        <div>
+                          <p className="text-foreground font-medium">{item.title}</p>
+                          <p className="text-sm">{item.details}</p>
+                        </div>
+                      </li>
+                    ))}
                   </ul>
                 </section>
 
                 <section className="space-y-5 border-t border-border/50 pt-8">
-                  <h2 className="font-heading text-2xl text-foreground">Επαγγελματική Εμπειρία</h2>
+                  <h2 className="font-heading text-2xl text-foreground">Επαγγελματική Δραστηριότητα</h2>
                   <div className="w-12 h-px bg-accent" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {experienceAreas.map((item) => (
-                      <article key={item.title} className="border border-border/60 bg-secondary/30 px-5 py-4 space-y-2">
+                    {professionalActivity.map((item) => (
+                      <article key={item.title} className="border border-border/60 bg-secondary/30 px-5 py-4 space-y-2 md:first:col-span-2">
                         <h3 className="text-foreground font-medium">{item.title}</h3>
                         <p className="text-sm">{item.description}</p>
                       </article>
@@ -178,19 +179,31 @@ export default function ProfilePage() {
                 </section>
 
                 <section className="space-y-5 border-t border-border/50 pt-8">
+                  <h2 className="font-heading text-2xl text-foreground">Τομείς Νομικής Ενασχόλησης</h2>
+                  <div className="w-12 h-px bg-accent" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {legalAreas.map((area) => (
+                      <div key={area} className="border border-border/60 px-4 py-3 bg-background/70 text-foreground">
+                        {area}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="space-y-5 border-t border-border/50 pt-8">
                   <h2 className="font-heading text-2xl text-foreground">Νομική Προσέγγιση</h2>
                   <div className="w-12 h-px bg-accent" />
                   <p>
-                    Κάθε υπόθεση αντιμετωπίζεται με προσωπική προσοχή, ώστε η νομική στρατηγική να ανταποκρίνεται στα πραγματικά δεδομένα και στις
-                    ανάγκες του εντολέα. Η εξατομικευμένη συνεργασία αποτελεί βασική προϋπόθεση για ένα ασφαλές και αξιόπιστο αποτέλεσμα.
+                    Κάθε υπόθεση αντιμετωπίζεται με προσωπική ενασχόληση και προσοχή στη λεπτομέρεια, ώστε η νομική στρατηγική να ευθυγραμμίζεται
+                    με τα πραγματικά δεδομένα και τον επιδιωκόμενο στόχο του εντολέα.
                   </p>
                   <p>
-                    Η νομική ακρίβεια, η διαφανής ενημέρωση και η καθαρή αποτύπωση των διαθέσιμων επιλογών αποτελούν σταθερές αρχές της καθημερινής
-                    πρακτικής. Ο εντολέας ενημερώνεται έγκαιρα για τα ουσιώδη βήματα, τους κινδύνους και τις δυνατότητες της υπόθεσής του.
+                    Η ακρίβεια στη νομική τεκμηρίωση, η μεθοδικότητα στη διαχείριση των διαδικαστικών σταδίων και η διαφάνεια στην επικοινωνία
+                    αποτελούν σταθερές αρχές συνεργασίας. Ο εντολέας ενημερώνεται έγκαιρα για τις επιλογές, τους κινδύνους και τις πιθανές εξελίξεις.
                   </p>
                   <p>
-                    Με συνεχή παρακολούθηση της νομολογίας και της νομοθετικής εξέλιξης, η διαχείριση κάθε υπόθεσης παραμένει πρακτική, στρατηγική
-                    και προσαρμοσμένη στις σύγχρονες απαιτήσεις της νομικής πραγματικότητας.
+                    Με συνεχή παρακολούθηση της νομολογίας και της νομοθετικής εξέλιξης, κάθε υπόθεση προσεγγίζεται πρακτικά και στρατηγικά,
+                    επιδιώκοντας λειτουργικές λύσεις με νομική ασφάλεια και συνέπεια.
                   </p>
                 </section>
 
@@ -214,21 +227,25 @@ export default function ProfilePage() {
                 <section className="space-y-5 border-t border-border/50 pt-8">
                   <h2 className="font-heading text-2xl text-foreground">Επαγγελματική Ιδιότητα</h2>
                   <div className="w-12 h-px bg-accent" />
-                  <p className="text-foreground">Μέλος του Δικηγορικού Συλλόγου Αθηνών.</p>
+                  <p className="text-foreground">Μέλος Δικηγορικού Συλλόγου Αθηνών.</p>
                 </section>
 
-                {hasCvPdf && (
-                  <section className="space-y-5 border-t border-border/50 pt-8">
-                    <h2 className="font-heading text-2xl text-foreground">Βιογραφικό Σημείωμα</h2>
-                    <div className="w-12 h-px bg-accent" />
-                    <p>Για την πλήρη έκδοση του βιογραφικού, μπορείτε να πραγματοποιήσετε λήψη σε μορφή PDF.</p>
+                <section className="space-y-5 border-t border-border/50 pt-8">
+                  <h2 className="font-heading text-2xl text-foreground">Βιογραφικό Σημείωμα</h2>
+                  <div className="w-12 h-px bg-accent" />
+                  <p>Για την πλήρη έκδοση του βιογραφικού, μπορείτε να πραγματοποιήσετε λήψη σε μορφή PDF.</p>
+                  {hasCvPdf ? (
                     <Button variant="outline" asChild>
                       <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-                        Λήψη Βιογραφικού (PDF)
+                        Λήψη πλήρους βιογραφικού
                       </a>
                     </Button>
-                  </section>
-                )}
+                  ) : (
+                    <Button variant="outline" disabled>
+                      Λήψη πλήρους βιογραφικού
+                    </Button>
+                  )}
+                </section>
 
                 <section className="space-y-5 border-t border-border/50 pt-8">
                   <h2 className="font-heading text-2xl text-foreground">Τοποθεσία</h2>
@@ -239,7 +256,7 @@ export default function ProfilePage() {
                 <section className="border-t border-border/50 pt-8">
                   <div className="border border-border/60 bg-secondary/40 p-7 md:p-9">
                     <p className="text-foreground text-lg md:text-xl font-heading leading-relaxed mb-6">
-                      Για νομική καθοδήγηση και προσωπική αξιολόγηση της υπόθεσής σας, επικοινωνήστε με το γραφείο.
+                      Για προσωπική αξιολόγηση της υπόθεσής σας και υπεύθυνη νομική καθοδήγηση, επικοινωνήστε με το γραφείο.
                     </p>
                     <Button variant="outline" asChild>
                       <Link to="/epikoinonia">
