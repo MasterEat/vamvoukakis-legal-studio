@@ -9,9 +9,15 @@ export default function ContactPage() {
   return (
     <Layout>
       <SEOHead
-        title="Επικοινωνία | Vamvoukakis Legal Studio"
-        description="Στοιχεία επικοινωνίας και φόρμα επικοινωνίας του Vamvoukakis Legal Studio."
-        canonical="/contact"
+        title="Επικοινωνία"
+        description="Στοιχεία επικοινωνίας και φόρμα επικοινωνίας του Δικηγορικού Γραφείου Βαμβουκάκη."
+        canonical="/epikoinonia"
+        lang="el"
+        hrefLangs={[
+          { lang: "el", href: "/epikoinonia" },
+          { lang: "en", href: "/en/contact" },
+          { lang: "de", href: "/de/kontakt" },
+        ]}
         structuredData={getContactStructuredData("el", "/epikoinonia")}
       />
 

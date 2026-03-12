@@ -5,7 +5,7 @@ import portraitImg from "@/assets/lawyer-portrait.jpg";
 export default function ProfilePageEn() {
   return (
     <Layout>
-      <SEOHead title="Profile" description="Emmanouil Vamvoukakis - Rechtsanwalt, Attorney at Law. Graduate of Philipps-Universität Marburg, LL.M in Civil Law." canonical="/en/profile" lang="en" />
+      <SEOHead title="Profile" description="Emmanouil Vamvoukakis - Rechtsanwalt, Attorney at Law. Graduate of Philipps-Universität Marburg, LL.M in Civil Law." canonical="/en/profile" lang="en" hrefLangs={[{ lang: "el", href: "/viografiko" }, { lang: "en", href: "/en/profile" }, { lang: "de", href: "/de/profil" }]} />
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">

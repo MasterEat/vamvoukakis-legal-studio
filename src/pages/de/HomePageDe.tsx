@@ -17,6 +17,17 @@ const practiceAreas = [
 export default function HomePageDe() {
   return (
     <Layout>
+      <SEOHead
+        title="Kanzlei"
+        description="Die Kanzlei Vamvoukakis in Athen bietet verlässliche Rechtsberatung im Zivil-, Straf-, Handels- und Immobilienrecht."
+        canonical="/de"
+        lang="de"
+        hrefLangs={[
+          { lang: "el", href: "/" },
+          { lang: "en", href: "/en" },
+          { lang: "de", href: "/de" },
+        ]}
+      />
 
       <section className="relative min-h-[85vh] flex items-center">
         <div className="absolute inset-0">

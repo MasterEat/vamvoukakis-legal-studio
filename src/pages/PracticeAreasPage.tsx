@@ -13,7 +13,7 @@ const areas = [
 export default function PracticeAreasPage() {
   return (
     <Layout>
-      <SEOHead title="Τομείς Ειδίκευσης" description="Εξειδικευμένες νομικές υπηρεσίες σε Αστικό, Ποινικό, Εμπορικό Δίκαιο και Δίκαιο Ακινήτων. Δικηγορικό Γραφείο Βαμβουκάκη." canonical="/tomeis-eidikefsis" />
+      <SEOHead title="Τομείς Ειδίκευσης" description="Εξειδικευμένες νομικές υπηρεσίες σε Αστικό, Ποινικό, Εμπορικό Δίκαιο και Δίκαιο Ακινήτων. Δικηγορικό Γραφείο Βαμβουκάκη." canonical="/tomeis-eidikefsis" hrefLangs={[{ lang: "el", href: "/tomeis-eidikefsis" }, { lang: "en", href: "/en/practice-areas" }, { lang: "de", href: "/de/rechtsgebiete" }]} />
       
       <section className="section-padding bg-background">
         <div className="container-wide">
