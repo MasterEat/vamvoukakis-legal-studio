@@ -9,6 +9,12 @@ export default function ArticlesPage() {
 
   return (
     <Layout>
+      <SEOHead
+        title="Νομικά Άρθρα"
+        description="Άρθρα και νομικές αναλύσεις από το Δικηγορικό Γραφείο Βαμβουκάκη για ζητήματα αστικού, ποινικού, εμπορικού δικαίου και ακινήτων."
+        canonical="/arthra"
+        lang="el"
+      />
 
       <section className="section-padding bg-background">
         <div className="container-wide">

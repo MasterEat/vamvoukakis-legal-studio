@@ -13,7 +13,7 @@ const areas = [
 export default function PracticeAreasPageEn() {
   return (
     <Layout>
-      <SEOHead title="Practice Areas" description="Specialized legal services in Civil, Criminal, Commercial and Real Estate Law. Vamvoukakis Law Office." canonical="/en/practice-areas" lang="en" />
+      <SEOHead title="Practice Areas" description="Specialized legal services in Civil, Criminal, Commercial and Real Estate Law. Vamvoukakis Law Office." canonical="/en/practice-areas" lang="en" hrefLangs={[{ lang: "el", href: "/tomeis-eidikefsis" }, { lang: "en", href: "/en/practice-areas" }, { lang: "de", href: "/de/rechtsgebiete" }]} />
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-2xl mb-16">

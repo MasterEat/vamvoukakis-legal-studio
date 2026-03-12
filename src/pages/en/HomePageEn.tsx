@@ -17,7 +17,17 @@ const practiceAreas = [
 export default function HomePageEn() {
   return (
     <Layout>
-
+      <SEOHead
+        title="Law Office"
+        description="Vamvoukakis Law Office in Athens offers trusted legal services in civil, criminal, commercial and real estate law."
+        canonical="/en"
+        lang="en"
+        hrefLangs={[
+          { lang: "el", href: "/" },
+          { lang: "en", href: "/en" },
+          { lang: "de", href: "/de" },
+        ]}
+      />
 
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center">

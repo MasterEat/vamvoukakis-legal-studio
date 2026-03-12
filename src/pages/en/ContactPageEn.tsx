@@ -8,9 +8,15 @@ export default function ContactPageEn() {
   return (
     <Layout>
       <SEOHead
-        title="Contact | Vamvoukakis Legal Studio"
+        title="Contact"
         description="Contact details and contact form for Vamvoukakis Legal Studio."
         canonical="/en/contact"
+        lang="en"
+        hrefLangs={[
+          { lang: "el", href: "/epikoinonia" },
+          { lang: "en", href: "/en/contact" },
+          { lang: "de", href: "/de/kontakt" },
+        ]}
         structuredData={getContactStructuredData("en", "/en/contact")}
       />
 

@@ -111,6 +111,11 @@ export default function ProfilePage() {
         title="Βιογραφικό"
         description="Ο Εμμανουήλ Βαμβουκάκης είναι δικηγόρος με διεθνή ακαδημαϊκή πορεία, πολυετή εμπειρία στο ιδιωτικό αστικό δίκαιο και προσωπική, μεθοδική προσέγγιση σε κάθε υπόθεση."
         canonical="/viografiko"
+        hrefLangs={[
+          { lang: "el", href: "/viografiko" },
+          { lang: "en", href: "/en/profile" },
+          { lang: "de", href: "/de/profil" },
+        ]}
         structuredData={profileStructuredData}
       />
 
