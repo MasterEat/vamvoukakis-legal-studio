@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import portraitImg from "@/assets/lawyer-portrait.jpg";
+import portraitImg from "../../../images/image2.webp";
 
 export default function ProfilePageEn() {
   return (
