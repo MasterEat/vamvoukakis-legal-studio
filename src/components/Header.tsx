@@ -31,12 +31,28 @@ const navItemsDe = [
 const HOME_PATHS = ["/", "/en", "/de"];
 const GLASS_HEADER_CLASS = "bg-[rgba(30,53,82,0.72)] backdrop-blur-xl border-b border-white/20 shadow-[0_12px_32px_rgba(9,16,28,0.28)]";
 
+const BRANDING_BY_LANG = {
+  el: {
+    line1: "Εμμανουήλ Βαμβουκάκης",
+    line2: "Δικηγορικό Γραφείο",
+  },
+  en: {
+    line1: "Emmanouil Vamvoukakis",
+    line2: "Law Office",
+  },
+  de: {
+    line1: "Emmanouil Vamvoukakis",
+    line2: "Rechtsanwaltskanzlei",
+  },
+} as const;
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   const lang = location.pathname.startsWith("/en") ? "en" : location.pathname.startsWith("/de") ? "de" : "el";
+  const branding = BRANDING_BY_LANG[lang];
   const navItems = lang === "en" ? navItemsEn : lang === "de" ? navItemsDe : navItemsEl;
   const isHomePage = HOME_PATHS.includes(location.pathname);
 
@@ -71,14 +87,14 @@ export default function Header() {
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
         <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex flex-col">
           <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
-            {lang === "en" ? "Vamvoukakis Law Office" : lang === "de" ? "Kanzlei Vamvoukakis" : "Δ.Γ. Βαμβουκάκη"}
+            {branding.line1}
           </span>
           <span
-            className={`text-[10px] md:text-xs tracking-widest uppercase font-body transition-colors duration-500 ${
+            className={`text-[10px] md:text-xs tracking-widest font-body transition-colors duration-500 ${
               headerIsTransparent ? "text-white/75" : "text-slate-200/80"
             }`}
           >
-            {lang === "en" ? "Attorneys at Law" : lang === "de" ? "Rechtsanwälte" : "Δικηγορικό Γραφείο"}
+            {branding.line2}
           </span>
         </Link>
 
