@@ -85,16 +85,29 @@ export default function Header() {
       }`}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex flex-col">
-          <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
-            {branding.line1}
-          </span>
-          <span
-            className={`text-[10px] md:text-xs tracking-widest font-body transition-colors duration-500 ${
-              headerIsTransparent ? "text-white/75" : "text-slate-200/80"
-            }`}
-          >
-            {branding.line2}
+        <Link
+          to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
+          aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
+          className="flex items-center gap-2 md:gap-3 shrink-0"
+        >
+          <img
+            src="/logo.svg"
+            alt="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
+            className="h-10 w-auto"
+            loading="eager"
+            decoding="async"
+          />
+          <span className="flex flex-col leading-tight">
+            <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
+              {branding.line1}
+            </span>
+            <span
+              className={`text-[10px] md:text-xs tracking-widest font-body transition-colors duration-500 ${
+                headerIsTransparent ? "text-white/75" : "text-slate-200/80"
+              }`}
+            >
+              {branding.line2}
+            </span>
           </span>
         </Link>
 
