@@ -173,7 +173,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-primary-foreground/10">
           <p className="text-xs text-primary-foreground/40 text-center font-body">
-            © {new Date().getFullYear()} {c.firm}. {c.rights}
+            © {new Date().getFullYear()} {c.firm}. {c.rights} powered by MasterEat
           </p>
         </div>
       </div>
