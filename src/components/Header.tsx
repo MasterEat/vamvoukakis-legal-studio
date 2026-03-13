@@ -85,16 +85,26 @@ export default function Header() {
       }`}
     >
       <div className="container-wide flex items-center justify-between h-16 md:h-20">
-        <Link to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"} className="flex flex-col">
-          <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
-            {branding.line1}
-          </span>
-          <span
-            className={`text-[10px] md:text-xs tracking-widest font-body transition-colors duration-500 ${
-              headerIsTransparent ? "text-white/75" : "text-slate-200/80"
-            }`}
-          >
-            {branding.line2}
+        <Link
+          to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
+          className="flex items-center gap-2.5 md:gap-3.5 min-w-0"
+        >
+          <img
+            src="/logo.svg"
+            alt="Vamvoukakis Law Office"
+            className="h-8 w-auto md:h-10 shrink-0"
+          />
+          <span className="flex flex-col justify-center min-w-0 -space-y-0.5">
+            <span className={`font-heading text-sm md:text-base font-semibold tracking-[0.02em] leading-tight transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
+              {branding.line1}
+            </span>
+            <span
+              className={`text-[10px] md:text-xs tracking-[0.22em] font-body leading-tight transition-colors duration-500 ${
+                headerIsTransparent ? "text-white/75" : "text-slate-200/80"
+              }`}
+            >
+              {branding.line2}
+            </span>
           </span>
         </Link>
 
