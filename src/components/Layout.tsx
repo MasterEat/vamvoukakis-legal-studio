@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import StickyCallButton from "./StickyCallButton";
 import FloatingContactWidget from "./FloatingContactWidget";
+import heroImg from "@/assets/hero-law-office.jpg";
 
 interface LayoutProps {
   children: ReactNode;
@@ -52,7 +53,11 @@ export default function Layout({ children }: LayoutProps) {
 
       {!isHomePage && (
         <section className="relative overflow-hidden pt-24 md:pt-32 pb-10 md:pb-14 border-b border-white/10 bg-[linear-gradient(135deg,rgba(12,27,45,0.94),rgba(22,40,63,0.9)),radial-gradient(circle_at_15%_20%,rgba(178,145,85,0.18),transparent_48%),radial-gradient(circle_at_80%_0%,rgba(120,140,170,0.14),transparent_52%)]">
-          <div className="absolute inset-0 opacity-25 bg-[url('/images/image1.webp')] bg-cover bg-center mix-blend-overlay" />
+          <div
+            className="absolute inset-0 opacity-25 bg-cover bg-center mix-blend-overlay"
+            style={{ backgroundImage: `url(${heroImg})` }}
+            aria-hidden="true"
+          />
           <div className="container-wide relative z-10">
             <div className="max-w-3xl">
               <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-slate-200/70 mb-3">Vamvoukakis Law Office</p>
