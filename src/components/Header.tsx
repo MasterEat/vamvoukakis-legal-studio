@@ -89,21 +89,21 @@ export default function Header() {
         <Link
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
-          className="flex items-center gap-2 md:gap-3"
+          className="flex items-center gap-2.5 md:gap-3.5 pr-2"
         >
           <img
             src={logoSymbol}
             alt="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
-            className="h-10 md:h-[42px] w-auto"
+            className="h-9 md:h-10 lg:h-[42px] w-auto shrink-0"
             loading="eager"
             decoding="async"
           />
-          <span className="flex flex-col">
-            <span className={`font-heading text-sm md:text-base font-semibold tracking-wide transition-colors duration-500 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
+          <span className="flex flex-col justify-center leading-none min-w-0 pt-0.5">
+            <span className={`font-heading text-[13px] sm:text-sm md:text-base font-semibold tracking-[0.045em] transition-colors duration-500 whitespace-nowrap ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
               {branding.line1}
             </span>
             <span
-              className={`text-[10px] md:text-xs tracking-widest font-body transition-colors duration-500 ${
+              className={`mt-1 text-[9px] sm:text-[10px] md:text-xs tracking-[0.28em] font-body transition-colors duration-500 whitespace-nowrap ${
                 headerIsTransparent ? "text-white/75" : "text-slate-200/80"
               }`}
             >
