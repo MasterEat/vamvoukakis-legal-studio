@@ -70,6 +70,24 @@ export default function ContactPage() {
             </div>
 
             <div>
+              <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-6">Επικοινωνία</h2>
+              <p className="text-muted-foreground font-body leading-relaxed mb-8">
+                Είμαστε δίπλα σας για κάθε νομική σας ανάγκη.
+                <br />
+                <br />
+                Η έγκαιρη νομική συμβουλή είναι ο καλύτερος τρόπος
+                <br />
+                για την πρόληψη προβλημάτων και τη διασφάλιση
+                <br />
+                των δικαιωμάτων σας.
+                <br />
+                <br />
+                Στο γραφείο μας δίνουμε προτεραιότητα
+                <br />
+                στην άμεση ανταπόκριση και την προσωπική επαφή
+                <br />
+                με κάθε εντολέα.
+              </p>
               <div className="premium-card">
                 <h2 className="font-heading text-2xl mb-6">Φόρμα Επικοινωνίας</h2>
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
