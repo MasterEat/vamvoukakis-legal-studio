@@ -56,7 +56,7 @@ export default function Header() {
   const branding = BRANDING_BY_LANG[lang];
   const navItems = lang === "en" ? navItemsEn : lang === "de" ? navItemsDe : navItemsEl;
   const isHomePage = HOME_PATHS.includes(location.pathname);
-  const isGreekHomePage = location.pathname === "/";
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -91,7 +91,7 @@ export default function Header() {
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
           className={`flex items-center pr-2 ${
-            isGreekHomePage ? "gap-2 md:gap-3 lg:gap-2.5" : "gap-2.5 md:gap-3.5"
+
           }`}
         >
           <img
@@ -103,7 +103,7 @@ export default function Header() {
           />
           <span className="flex flex-col justify-center leading-none min-w-0 pt-0.5">
             <span className={`font-heading text-[13px] sm:text-sm font-semibold transition-colors duration-500 whitespace-nowrap ${
-              isGreekHomePage
+
                 ? "md:text-[15px] lg:text-[14px] xl:text-[15px] tracking-[0.03em]"
                 : "md:text-base tracking-[0.045em]"
             } ${headerIsTransparent ? "text-white" : "text-slate-100"}`}>
@@ -111,7 +111,7 @@ export default function Header() {
             </span>
             <span
               className={`mt-1 text-[9px] sm:text-[10px] font-body transition-colors duration-500 whitespace-nowrap ${
-                isGreekHomePage
+
                   ? "md:text-[11px] lg:text-[10px] xl:text-[11px] tracking-[0.22em]"
                   : "md:text-xs tracking-[0.28em]"
               } ${
@@ -123,7 +123,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className={`hidden lg:flex items-center ${isGreekHomePage ? "gap-6 xl:gap-7" : "gap-8"}`}>
+
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -140,7 +140,7 @@ export default function Header() {
             </Link>
           ))}
           <div className={`flex items-center gap-2 transition-colors duration-500 ${
-            isGreekHomePage ? "ml-3 pl-3 xl:ml-4 xl:pl-4" : "ml-4 pl-4"
+
           } ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
             {(["el", "en", "de"] as const).map((l) => (
               <Link
