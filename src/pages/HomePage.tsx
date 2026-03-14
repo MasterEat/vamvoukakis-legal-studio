@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Building2, Briefcase, Home, Clock3 } from "lucide-react";
+import { ArrowRight, Scale, Briefcase, Home, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -8,10 +8,24 @@ import portraitImg from "../../images/image1.webp";
 import { contactDetails } from "@/lib/contactSeo";
 
 const practiceAreas = [
+  { icon: Home, title: "Ακίνητα & Εμπράγματο Δίκαιο", desc: "Αγοραπωλησίες, μισθώσεις, κτηματολόγιο και ζητήματα εμπράγματου δικαίου με ακρίβεια και ασφάλεια.", path: "/dikaio-akiniton" },
   { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο με εξειδίκευση και ανθρώπινη προσέγγιση.", path: "/astiko-dikaio" },
   { icon: Briefcase, title: "Ποινικό Δίκαιο", desc: "Υπεράσπιση και νομική εκπροσώπηση σε ποινικές υποθέσεις κάθε βαθμού.", path: "/poiniko-dikaio" },
-  { icon: Building2, title: "Εμπορικό Δίκαιο", desc: "Εταιρικό δίκαιο, συμβάσεις, εμπορικές διαφορές και νομική υποστήριξη επιχειρήσεων.", path: "/emporiko-dikaio" },
-  { icon: Home, title: "Δίκαιο Ακινήτων", desc: "Αγοραπωλησίες, μισθώσεις, κτηματολόγιο και διαχείριση ακίνητης περιουσίας.", path: "/dikaio-akiniton" },
+];
+
+const whyChooseUs = [
+  {
+    title: "Προσωπική Ενασχόληση",
+    text: "Κάθε υπόθεση εξετάζεται διεξοδικά από τον ίδιο τον Εμμανουήλ Βαμβουκάκη, διασφαλίζοντας την υψηλότερη ποιότητα νομικής εκπροσώπησης.",
+  },
+  {
+    title: "Ειλικρίνεια & Διαφάνεια",
+    text: "Σας ενημερώνουμε ρεαλιστικά για τις πιθανότητες επιτυχίας και τους βέλτιστους χειρισμούς από την πρώτη κιόλας συνάντηση.",
+  },
+  {
+    title: "Αποτελεσματικότητα",
+    text: "Συνδυάζουμε τη μαχητική δικαστηριακή πρακτική με τη συμβουλευτική δικηγορία για την ταχύτερη δυνατή επίλυση των διαφορών σας.",
+  },
 ];
 
 const decisions = [
@@ -69,11 +83,21 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
-              Δικηγορικό Γραφείο<br />
-              <span className="italic font-normal">Βαμβουκάκη Εμμανουήλ</span>
+              ΕΜΜΑΝΟΥΗΛ ΒΑΜΒΟΥΚΑΚΗΣ &amp; ΣΥΝΕΡΓΑΤΕΣ
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-
+              Νομική Υπεροχή με Ανθρώπινο Πρόσωπο
+              <br />
+              Απόλυτη Προσήλωση στο Αποτέλεσμα
+              <br />
+              <br />
+              Καλωσορίσατε στο δικηγορικό μας γραφείο.
+              <br />
+              Με βαθιά γνώση της νομολογίας και σύγχρονη αντίληψη της δικηγορίας,
+              <br />
+              παρέχουμε εξειδικευμένες νομικές υπηρεσίες που ανταποκρίνονται
+              <br />
+              με ακρίβεια στις ανάγκες σας.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild>
@@ -99,6 +123,39 @@ export default function HomePage() {
             συνδυάζοντας ακαδημαϊκή κατάρτιση και πρακτική εμπειρία. Κάθε υπόθεση αντιμετωπίζεται 
             με διακριτικότητα, επαγγελματισμό και προσωπική φροντίδα, εξασφαλίζοντας στον εντολέα 
             το βέλτιστο νομικό αποτέλεσμα.
+          </p>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-secondary">
+        <div className="container-wide">
+          <div className="text-center mb-16">
+            <div className="gold-divider mb-8" />
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-4">Γιατί να μας εμπιστευτείτε</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {whyChooseUs.map((item) => (
+              <div key={item.title} className="premium-card">
+                <h3 className="font-heading text-xl md:text-2xl mb-3">{item.title}</h3>
+                <p className="text-muted-foreground font-body text-sm leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow text-center">
+          <div className="gold-divider mb-8" />
+          <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-6">
+            "Η δικαιοσύνη δεν είναι απλώς μια έννοια,
+          </h2>
+          <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
+            είναι το αποτέλεσμα της σωστής στρατηγικής
+            <br />
+            και της αδιάκοπης προσπάθειας."
           </p>
         </div>
       </section>
