@@ -1,38 +1,82 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Briefcase, Building2, Home } from "lucide-react";
+import { ArrowRight, Scale, Home } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 
 const areas = [
-  { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο. Εξατομικευμένη προσέγγιση σε κάθε υπόθεση ιδιωτικού δικαίου.", path: "/astiko-dikaio" },
-  { icon: Briefcase, title: "Ποινικό Δίκαιο", desc: "Ποινική υπεράσπιση και νομική εκπροσώπηση σε υποθέσεις κάθε βαθμού. Προστασία των δικαιωμάτων σας σε κάθε στάδιο.", path: "/poiniko-dikaio" },
-  { icon: Building2, title: "Εμπορικό Δίκαιο", desc: "Εταιρικό δίκαιο, εμπορικές συμβάσεις, αξιόγραφα και νομική υποστήριξη επιχειρήσεων. Στρατηγικές λύσεις για κάθε επιχειρηματική ανάγκη.", path: "/emporiko-dikaio" },
-  { icon: Home, title: "Δίκαιο Ακινήτων", desc: "Αγοραπωλησίες, μισθώσεις, κτηματολόγιο, πολεοδομικά ζητήματα και διαχείριση ακίνητης περιουσίας.", path: "/dikaio-akiniton" },
+  {
+    icon: Scale,
+    title: "Αστικό Δίκαιο",
+    intro:
+      "Χειριζόμαστε με υπευθυνότητα υποθέσεις που αφορούν την καθημερινότητα και τις προσωπικές σχέσεις των εντολέων μας.",
+    sections: [
+      {
+        title: "Οικογενειακό Δίκαιο:",
+        desc: "Συναινετικά διαζύγια, θέματα επιμέλειας, διατροφής και ρύθμισης των σχέσεων των συζύγων.",
+      },
+      {
+        title: "Κληρονομικό Δίκαιο:",
+        desc: "Αποδοχές κληρονομιάς, δημοσίευση διαθηκών, διεκδίκηση νόμιμης μοίρας και επίλυση κληρονομικών διενέξεων.",
+      },
+      {
+        title: "Ενοχικό Δίκαιο:",
+        desc: "Διεκδίκηση αποζημιώσεων, συμβάσεις και αστικές διαφορές κάθε φύσεως.",
+      },
+    ],
+    path: "/epikoinonia",
+  },
+  {
+    icon: Home,
+    title: "Δίκαιο Ακινήτων",
+    intro:
+      "Παρέχουμε ολοκληρωμένη νομική κάλυψη σε κάθε στάδιο της αξιοποίησης της ακίνητης περιουσίας σας.",
+    sections: [
+      {
+        title: "Μεταβιβάσεις Ακινήτων:",
+        desc: "Πλήρης έλεγχος τίτλων στο Υποθηκοφυλακείο και το Κτηματολόγιο για την ασφάλεια της συναλλαγής σας.",
+      },
+      {
+        title: "Αγορές & Πωλήσεις:",
+        desc: "Νομική συμβουλευτική και σύνταξη συμβολαίων για την προστασία των συμφερόντων σας.",
+      },
+      {
+        title: "Μισθώσεις:",
+        desc: "Διαχείριση μισθωτικών διαφορών, σύνταξη ιδιωτικών συμφωνητικών και διεκδίκηση οφειλόμενων μισθωμάτων.",
+      },
+    ],
+    path: "/epikoinonia",
+  },
 ];
 
 export default function PracticeAreasPage() {
   return (
     <Layout>
       <SEOHead title="Τομείς Ειδίκευσης" description="Εξειδικευμένες νομικές υπηρεσίες σε Αστικό, Ποινικό, Εμπορικό Δίκαιο και Δίκαιο Ακινήτων. Δικηγορικό Γραφείο Βαμβουκάκη." canonical="/tomeis-eidikefsis" hrefLangs={[{ lang: "el", href: "/tomeis-eidikefsis" }, { lang: "en", href: "/en/practice-areas" }, { lang: "de", href: "/de/rechtsgebiete" }]} />
-      
+
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-2xl mb-16">
             <div className="gold-divider-left mb-8" />
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Τομείς Ειδίκευσης</h1>
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Τομείς Εξειδίκευσης</h1>
             <p className="text-muted-foreground font-body leading-relaxed">
-              Παρέχουμε ολοκληρωμένη νομική υποστήριξη σε τέσσερις βασικούς τομείς του δικαίου, 
-              με εξειδίκευση, μεθοδικότητα και σεβασμό στις ανάγκες κάθε εντολέα.
+              Παρέχουμε ολοκληρωμένη νομική υποστήριξη σε δύο βασικούς τομείς δικαίου, με εξειδίκευση, υπευθυνότητα και προσωπική προσέγγιση σε κάθε υπόθεση.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {areas.map((area) => (
-              <Link key={area.path} to={area.path} className="premium-card group">
+              <Link key={area.title} to={area.path} className="premium-card group">
                 <area.icon size={28} className="text-accent mb-6" />
                 <h2 className="font-heading text-xl md:text-2xl mb-3 group-hover:text-accent transition-colors">{area.title}</h2>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">{area.desc}</p>
+                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">{area.intro}</p>
+                <div className="text-muted-foreground font-body text-sm leading-relaxed mb-6 space-y-3">
+                  {area.sections.map((section) => (
+                    <p key={section.title}>
+                      <strong className="text-foreground">{section.title}</strong> {section.desc}
+                    </p>
+                  ))}
+                </div>
                 <span className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Περισσότερα <ArrowRight size={14} />
+                  Επικοινωνήστε μαζί μας <ArrowRight size={14} />
                 </span>
               </Link>
             ))}
