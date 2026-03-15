@@ -37,7 +37,7 @@ export default function ArticlesPage() {
               to={`/arthra/${featuredArticle.slug}`}
               className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 hover:gap-3 transition-all"
             >
-              Διαβάστε Περισσότερα <ArrowRight size={14} />
+              ΔΙΑΒΑΣΤΕ <ArrowRight size={14} />
             </Link>
           </div>
 
