@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Home, Clock3 } from "lucide-react";
+import { ArrowRight, Scale, Briefcase, Home, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -8,34 +8,15 @@ import portraitImg from "../../images/image1.webp";
 import { contactDetails } from "@/lib/contactSeo";
 
 const practiceAreas = [
-  {
-    icon: Scale,
-    title: "Αστικό Δίκαιο",
-    intro: "Χειριζόμαστε με υπευθυνότητα υποθέσεις που αφορούν την καθημερινότητα και τις προσωπικές σχέσεις των εντολέων μας.",
-    details: [
-      "Οικογενειακό Δίκαιο: Συναινετικά διαζύγια, θέματα επιμέλειας, διατροφής και ρύθμισης των σχέσεων των συζύγων.",
-      "Κληρονομικό Δίκαιο: Αποδοχές κληρονομιάς, δημοσίευση διαθηκών, διεκδίκηση νόμιμης μοίρας και επίλυση κληρονομικών διενέξεων.",
-      "Ενοχικό Δίκαιο: Διεκδίκηση αποζημιώσεων, συμβάσεις και αστικές διαφορές κάθε φύσεως.",
-    ],
-    path: "/astiko-dikaio",
-  },
-  {
-    icon: Home,
-    title: "Δίκαιο Ακινήτων",
-    intro: "Παρέχουμε ολοκληρωμένη νομική κάλυψη σε κάθε στάδιο της αξιοποίησης της ακίνητης περιουσίας σας.",
-    details: [
-      "Μεταβιβάσεις Ακινήτων: Πλήρης έλεγχος τίτλων στο Υποθηκοφυλακείο και το Κτηματολόγιο για την ασφάλεια της συναλλαγής σας.",
-      "Αγορές & Πωλήσεις: Νομική συμβουλευτική και σύνταξη συμβολαίων για την προστασία των συμφερόντων σας.",
-      "Μισθώσεις: Διαχείριση μισθωτικών διαφορών, σύνταξη ιδιωτικών συμφωνητικών και διεκδίκηση οφειλόμενων μισθωμάτων.",
-    ],
-    path: "/dikaio-akiniton",
-  },
+  { icon: Home, title: "Ακίνητα & Εμπράγματο Δίκαιο", desc: "Αγοραπωλησίες, μισθώσεις, κτηματολόγιο και ζητήματα εμπράγματου δικαίου με ακρίβεια και ασφάλεια.", path: "/dikaio-akiniton" },
+  { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο με εξειδίκευση και ανθρώπινη προσέγγιση.", path: "/astiko-dikaio" },
+  { icon: Briefcase, title: "Ποινικό Δίκαιο", desc: "Υπεράσπιση και νομική εκπροσώπηση σε ποινικές υποθέσεις κάθε βαθμού.", path: "/poiniko-dikaio" },
 ];
 
 const whyChooseUs = [
   {
     title: "Προσωπική Ενασχόληση",
-    text: "Κάθε υπόθεση εξετάζεται διεξοδικά από τον ίδιο τον Εμμανουήλ Βαμβουκάκη, διασφαλίζοντας την υψηλότερη ποιότητα εκπροσώπησης.",
+    text: "Κάθε υπόθεση εξετάζεται διεξοδικά από τον ίδιο τον Εμμανουήλ Βαμβουκάκη, διασφαλίζοντας την υψηλότερη ποιότητα νομικής εκπροσώπησης.",
   },
   {
     title: "Ειλικρίνεια & Διαφάνεια",
@@ -102,12 +83,12 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
-              Δικηγορικό Γραφείο
-              <br />
-              ΒΑΜΒΟΥΚΑΚΗ ΕΜΜΑΝΟΥΗΛ &amp; ΣΥΝΕΡΓΑΤΕΣ
+              ΕΜΜΑΝΟΥΗΛ ΒΑΜΒΟΥΚΑΚΗΣ &amp; ΣΥΝΕΡΓΑΤΕΣ
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Στρατηγική Νομική Υποστήριξη. Απόλυτη Προσήλωση στο Αποτέλεσμα.
+              Νομική Υπεροχή με Ανθρώπινο Πρόσωπο
+              <br />
+              Απόλυτη Προσήλωση στο Αποτέλεσμα
               <br />
               <br />
               Καλωσορίσατε στο δικηγορικό μας γραφείο.
@@ -151,7 +132,7 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="text-center mb-16">
             <div className="gold-divider mb-8" />
-            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-4">Γιατί να μας εμπιστευτείτε:</h2>
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-4">Γιατί να μας εμπιστευτείτε</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {whyChooseUs.map((item) => (
@@ -172,7 +153,9 @@ export default function HomePage() {
             "Η δικαιοσύνη δεν είναι απλώς μια έννοια,
           </h2>
           <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
-            είναι το αποτέλεσμα της σωστής στρατηγικής και της αδιάκοπης προσπάθειας."
+            είναι το αποτέλεσμα της σωστής στρατηγικής
+            <br />
+            και της αδιάκοπης προσπάθειας."
           </p>
         </div>
       </section>
@@ -182,19 +165,15 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="text-center mb-16">
             <div className="gold-divider mb-8" />
-            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-4">ΤΟΜΕΙΣ ΕΞΕΙΔΙΚΕΥΣΗΣ</h2>
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-4">Τομείς Ειδίκευσης</h2>
+            <p className="text-muted-foreground font-body">Εξειδικευμένη νομική υποστήριξη σε κάθε τομέα του δικαίου.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {practiceAreas.map((area) => (
               <Link key={area.path} to={area.path} className="premium-card group">
                 <area.icon size={28} className="text-accent mb-6" />
                 <h3 className="font-heading text-xl md:text-2xl mb-3 group-hover:text-accent transition-colors">{area.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-4">{area.intro}</p>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">
-                  {area.details.map((detail) => (
-                    <span key={detail} className="block mb-2 last:mb-0">{detail}</span>
-                  ))}
-                </p>
+                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">{area.desc}</p>
                 <span className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
                   Περισσότερα <ArrowRight size={14} />
                 </span>
