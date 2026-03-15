@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Briefcase, Home, Clock3 } from "lucide-react";
+import { ArrowRight, Scale, Home, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -8,9 +8,8 @@ import portraitImg from "../../images/image1.webp";
 import { contactDetails } from "@/lib/contactSeo";
 
 const practiceAreas = [
-  { icon: Home, title: "Ακίνητα & Εμπράγματο Δίκαιο", desc: "Αγοραπωλησίες, μισθώσεις, κτηματολόγιο και ζητήματα εμπράγματου δικαίου με ακρίβεια και ασφάλεια.", path: "/dikaio-akiniton" },
-  { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό, κληρονομικό, ενοχικό και εμπράγματο δίκαιο με εξειδίκευση και ανθρώπινη προσέγγιση.", path: "/astiko-dikaio" },
-  { icon: Briefcase, title: "Ποινικό Δίκαιο", desc: "Υπεράσπιση και νομική εκπροσώπηση σε ποινικές υποθέσεις κάθε βαθμού.", path: "/poiniko-dikaio" },
+  { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό δίκαιο, κληρονομικές υποθέσεις, αστικές διαφορές και νομική υποστήριξη σε ζητήματα ιδιωτικού δικαίου.", path: "/tomeis-eidikefsis" },
+  { icon: Home, title: "Δίκαιο Ακινήτων", desc: "Μεταβιβάσεις, αγοραπωλησίες, μισθώσεις και πλήρης νομικός έλεγχος τίτλων σε Υποθηκοφυλακείο και Κτηματολόγιο.", path: "/tomeis-eidikefsis" },
 ];
 
 const whyChooseUs = [
@@ -83,21 +82,13 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
-              ΕΜΜΑΝΟΥΗΛ ΒΑΜΒΟΥΚΑΚΗΣ &amp; ΣΥΝΕΡΓΑΤΕΣ
+              Εμμανουήλ Βαμβουκάκης &amp; Συνεργάτες
             </h1>
             <p className="text-primary-foreground/80 text-base md:text-lg font-body leading-relaxed max-w-xl mb-10">
-              Νομική Υπεροχή με Ανθρώπινο Πρόσωπο
-              <br />
-              Απόλυτη Προσήλωση στο Αποτέλεσμα
+              Δικηγορικό Γραφείο στην Αθήνα – Εξειδικευμένη Νομική Υποστήριξη
               <br />
               <br />
-              Καλωσορίσατε στο δικηγορικό μας γραφείο.
-              <br />
-              Με βαθιά γνώση της νομολογίας και σύγχρονη αντίληψη της δικηγορίας,
-              <br />
-              παρέχουμε εξειδικευμένες νομικές υπηρεσίες που ανταποκρίνονται
-              <br />
-              με ακρίβεια στις ανάγκες σας.
+              Εξειδικευμένη νομική υποστήριξη σε ιδιώτες και επιχειρήσεις με υπευθυνότητα και στρατηγική προσέγγιση.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero-primary" asChild>
@@ -115,14 +106,15 @@ export default function HomePage() {
       <section className="section-padding bg-background">
         <div className="container-narrow text-center">
           <div className="gold-divider mb-8" />
+          <p className="text-xs tracking-[0.24em] uppercase font-body text-accent mb-4">Δικηγορικό Γραφείο</p>
           <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl mb-8">
-            Νομική Καθοδήγηση με Αξιοπιστία
+            ΒΑΜΒΟΥΚΑΚΗ ΕΜΜΑΝΟΥΗΛ &amp; ΣΥΝΕΡΓΑΤΕΣ
           </h2>
+          <p className="text-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto mb-4">
+            Στρατηγική Νομική Υποστήριξη. Απόλυτη Προσήλωση στο Αποτέλεσμα.
+          </p>
           <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
-            Το γραφείο μας παρέχει εξατομικευμένες νομικές υπηρεσίες υψηλού επιπέδου, 
-            συνδυάζοντας ακαδημαϊκή κατάρτιση και πρακτική εμπειρία. Κάθε υπόθεση αντιμετωπίζεται 
-            με διακριτικότητα, επαγγελματισμό και προσωπική φροντίδα, εξασφαλίζοντας στον εντολέα 
-            το βέλτιστο νομικό αποτέλεσμα.
+            Καλωσορίσατε στο δικηγορικό μας γραφείο. Με βαθιά γνώση της νομολογίας και σύγχρονη αντίληψη της δικηγορίας, παρέχουμε εξειδικευμένες νομικές υπηρεσίες που ανταποκρίνονται με ακρίβεια στις ανάγκες σας.
           </p>
         </div>
       </section>
