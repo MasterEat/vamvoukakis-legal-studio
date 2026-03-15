@@ -66,10 +66,14 @@ export default function ArticleDetailPage() {
           <div className="space-y-10 text-muted-foreground font-body leading-relaxed">
             <p className="text-foreground text-lg">{article.intro}</p>
 
-            {article.sections.map((section) => (
-              <div key={section.heading}>
-                <h2 className="font-heading text-2xl text-foreground mb-4">{section.heading}</h2>
-                <div className="w-12 h-px bg-accent mb-6" />
+            {article.sections.map((section, index) => (
+              <div key={`${section.heading}-${index}`}>
+                {section.heading && (
+                  <>
+                    <h2 className="font-heading text-2xl text-foreground mb-4">{section.heading}</h2>
+                    <div className="w-12 h-px bg-accent mb-6" />
+                  </>
+                )}
                 <div className="space-y-4">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
