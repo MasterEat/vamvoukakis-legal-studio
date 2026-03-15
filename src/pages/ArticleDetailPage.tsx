@@ -34,10 +34,34 @@ export default function ArticleDetailPage() {
           <div className="gold-divider-left mb-8" />
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">{article.title}</h1>
 
+          {article.authorBlock && (
+            <div className="mb-8 border-l-2 border-accent/60 pl-5 py-1">
+              {article.authorBlock.map((line, index) => (
+                <p
+                  key={line}
+                  className={index === 0 ? "font-heading text-xl text-foreground" : "text-sm md:text-base text-muted-foreground"}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+          )}
+
           <div className="flex items-center gap-4 mb-10">
             <span className="text-xs tracking-widest font-body text-accent uppercase">{article.category}</span>
             <span className="text-xs font-body text-muted-foreground">{article.date}</span>
           </div>
+
+          {article.heroImage && (
+            <figure className="mb-12">
+              <img
+                src={article.heroImage}
+                alt={article.heroImageAlt || article.title}
+                className="w-full h-auto max-h-[520px] object-cover rounded-sm border border-border"
+                loading="eager"
+              />
+            </figure>
+          )}
 
           <div className="space-y-10 text-muted-foreground font-body leading-relaxed">
             <p className="text-foreground text-lg">{article.intro}</p>
@@ -54,16 +78,44 @@ export default function ArticleDetailPage() {
               </div>
             ))}
 
-            <div className="pt-4 border-t border-border">
-              <p className="text-foreground mb-6">
-                Για περισσότερες πληροφορίες ή νομική συμβουλή μπορείτε να επικοινωνήσετε με το Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ στην Αθήνα.
-              </p>
-              <Button variant="default" size="lg" asChild>
-                <Link to="/epikoinonia">
-                  Επικοινωνήστε μαζί μας <ArrowRight size={14} />
-                </Link>
-              </Button>
-            </div>
+            {article.signatureBlock ? (
+              <div className="pt-6 border-t border-border">
+                <div className="space-y-1 text-sm text-muted-foreground">
+                  {article.signatureBlock.map((line, index) => (
+                    <p key={line} className={index === 0 ? "text-base font-heading text-foreground" : undefined}>
+                      {line}
+                    </p>
+                  ))}
+                </div>
+
+                {article.contactBlock && (
+                  <div className="mt-6 text-sm text-muted-foreground space-y-1">
+                    <p className="font-medium text-foreground">Επικοινωνία:</p>
+                    <p>{article.contactBlock.email}</p>
+                    <p>{article.contactBlock.phone}</p>
+                  </div>
+                )}
+
+                <div className="mt-8">
+                  <Button variant="default" size="lg" asChild>
+                    <Link to="/epikoinonia">
+                      Επικοινωνήστε μαζί μας <ArrowRight size={14} />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="pt-4 border-t border-border">
+                <p className="text-foreground mb-6">
+                  Για περισσότερες πληροφορίες ή νομική συμβουλή μπορείτε να επικοινωνήσετε με το Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ στην Αθήνα.
+                </p>
+                <Button variant="default" size="lg" asChild>
+                  <Link to="/epikoinonia">
+                    Επικοινωνήστε μαζί μας <ArrowRight size={14} />
+                  </Link>
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
