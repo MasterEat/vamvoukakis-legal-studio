@@ -117,6 +117,9 @@ export default function HomePage() {
           <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto">
             Καλωσορίσατε στο δικηγορικό μας γραφείο. Με βαθιά γνώση της νομολογίας και σύγχρονη αντίληψη της δικηγορίας, παρέχουμε εξειδικευμένες νομικές υπηρεσίες που ανταποκρίνονται με ακρίβεια στις ανάγκες σας.
           </p>
+          <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg max-w-2xl mx-auto mt-4">
+            Μάθετε περισσότερα για τη <Link to="/tomeis-eidikefsis" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">δικηγόρο στην Αθήνα για αστικό δίκαιο</Link> και τη <Link to="/epikoinonia" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">νομική υποστήριξη σε ακίνητα</Link> που παρέχουμε.
+          </p>
         </div>
       </section>
 

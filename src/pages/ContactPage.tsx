@@ -130,6 +130,9 @@ export default function ContactPage() {
                 στην άμεση ανταπόκριση και την προσωπική επαφή
                 <br />
                 με κάθε εντολέα.
+                <br />
+                <br />
+                Για θέματα <Link to="/tomeis-eidikefsis" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">αστικού δικαίου ή ακινήτων</Link> επικοινωνήστε μαζί μας.
               </p>
               <div className="premium-card">
                 <h2 className="font-heading text-2xl mb-6">Φόρμα Επικοινωνίας</h2>
