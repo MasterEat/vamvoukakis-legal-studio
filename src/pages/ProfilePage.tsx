@@ -108,7 +108,7 @@ export default function ProfilePage() {
   return (
     <Layout>
       <SEOHead
-        title="Βιογραφικό"
+        title="Εμμανουήλ Βαμβουκάκης | Δικηγόρος Αθήνα"
         description="Ο Εμμανουήλ Βαμβουκάκης είναι δικηγόρος με διεθνή ακαδημαϊκή πορεία, πολυετή εμπειρία στο ιδιωτικό αστικό δίκαιο και προσωπική, μεθοδική προσέγγιση σε κάθε υπόθεση."
         canonical="/viografiko"
         hrefLangs={[
