@@ -18,7 +18,7 @@ export default function HomePageDe() {
   return (
     <Layout>
       <SEOHead
-        title="Kanzlei"
+        title="Anwalt in Athen | Zivilrecht & Immobilienrecht | Emmanouil Vamvoukakis"
         description="Anwaltskanzlei in Athen mit Spezialisierung auf Zivilrecht und Immobilienrecht. Verantwortungsvolle und strategische rechtliche Unterstützung für Privatpersonen und Unternehmen."
         canonical="/de"
         lang="de"

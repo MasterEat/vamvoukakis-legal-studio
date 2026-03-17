@@ -12,7 +12,7 @@ const areas = [
 export default function RechtsgebietePage() {
   return (
     <Layout>
-      <SEOHead title="Rechtsgebiete" description="Spezialisierte Rechtsdienstleistungen in Zivilrecht, Strafrecht, Handelsrecht und Immobilienrecht. Kanzlei Vamvoukakis." canonical="/de/rechtsgebiete" lang="de" hrefLangs={[{ lang: "el", href: "/tomeis-eidikefsis" }, { lang: "en", href: "/en/practice-areas" }, { lang: "de", href: "/de/rechtsgebiete" }]} />
+      <SEOHead title="Zivilrecht & Immobilienrecht in Athen | Rechtsdienstleistungen" description="Spezialisierte Rechtsdienstleistungen in Zivilrecht, Strafrecht, Handelsrecht und Immobilienrecht. Kanzlei Vamvoukakis." canonical="/de/rechtsgebiete" lang="de" hrefLangs={[{ lang: "el", href: "/tomeis-eidikefsis" }, { lang: "en", href: "/en/practice-areas" }, { lang: "de", href: "/de/rechtsgebiete" }]} />
       <section className="section-padding bg-background">
         <div className="container-wide">
           <div className="max-w-2xl mb-16">

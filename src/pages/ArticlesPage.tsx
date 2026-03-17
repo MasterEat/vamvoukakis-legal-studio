@@ -10,7 +10,7 @@ export default function ArticlesPage() {
   return (
     <Layout>
       <SEOHead
-        title="Νομικά Άρθρα"
+        title="Νομικά Άρθρα | Αστικό Δίκαιο & Ακίνητα"
         description="Άρθρα και νομικές αναλύσεις από το Δικηγορικό Γραφείο Βαμβουκάκη για ζητήματα αστικού, ποινικού, εμπορικού δικαίου και ακινήτων."
         canonical="/arthra"
         lang="el"

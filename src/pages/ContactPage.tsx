@@ -52,7 +52,7 @@ export default function ContactPage() {
   return (
     <Layout>
       <SEOHead
-        title="Επικοινωνία"
+        title="Επικοινωνία με Δικηγόρο στην Αθήνα | Γραφείο Βαμβουκάκης"
         description="Στοιχεία επικοινωνίας και φόρμα επικοινωνίας του Δικηγορικού Γραφείου Βαμβουκάκη."
         canonical="/epikoinonia"
         lang="el"

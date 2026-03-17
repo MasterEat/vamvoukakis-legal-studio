@@ -76,7 +76,7 @@ export default function ProfilPage() {
 
   return (
     <Layout>
-      <SEOHead title="Profil" description="Emmanouil Vamvoukakis - Rechtsanwalt. Absolvent der Philipps-Universität Marburg, LL.M im Zivilrecht." canonical="/de/profil" lang="de" hrefLangs={[{ lang: "el", href: "/viografiko" }, { lang: "en", href: "/en/profile" }, { lang: "de", href: "/de/profil" }]} />
+      <SEOHead title="Emmanouil Vamvoukakis | Anwalt in Athen" description="Emmanouil Vamvoukakis - Rechtsanwalt. Absolvent der Philipps-Universität Marburg, LL.M im Zivilrecht." canonical="/de/profil" lang="de" hrefLangs={[{ lang: "el", href: "/viografiko" }, { lang: "en", href: "/en/profile" }, { lang: "de", href: "/de/profil" }]} />
 
       <section className="section-padding bg-background">
         <div className="container-wide">

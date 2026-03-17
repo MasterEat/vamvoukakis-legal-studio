@@ -51,7 +51,7 @@ export default function ContactPageEn() {
   return (
     <Layout>
       <SEOHead
-        title="Contact"
+        title="Contact a Lawyer in Athens | Vamvoukakis Law Office"
         description="Contact details and contact form for Vamvoukakis Legal Studio."
         canonical="/en/contact"
         lang="en"
