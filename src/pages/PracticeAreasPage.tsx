@@ -58,8 +58,11 @@ export default function PracticeAreasPage() {
           <div className="max-w-2xl mb-16">
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Τομείς Εξειδίκευσης</h1>
-            <p className="text-muted-foreground font-body leading-relaxed">
+            <p className="text-muted-foreground font-body leading-relaxed mb-4">
               Παρέχουμε ολοκληρωμένη νομική υποστήριξη σε δύο βασικούς τομείς δικαίου, με εξειδίκευση, υπευθυνότητα και προσωπική προσέγγιση σε κάθε υπόθεση.
+            </p>
+            <p className="text-muted-foreground font-body leading-relaxed">
+              Για εξατομικευμένη καθοδήγηση από <Link to="/epikoinonia" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">δικηγόρο στην Αθήνα</Link>, μπορείτε να επικοινωνήσετε μαζί μας. Δείτε επίσης τα <Link to="/arthra" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">νομικά άρθρα για αστικό δίκαιο και δίκαιο ακινήτων</Link>.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
@@ -76,10 +79,15 @@ export default function PracticeAreasPage() {
                   ))}
                 </div>
                 <span className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Επικοινωνήστε μαζί μας <ArrowRight size={14} />
+                  Επικοινωνήστε για Αστικό Δίκαιο & Ακίνητα <ArrowRight size={14} />
                 </span>
               </Link>
             ))}
+          </div>
+          <div className="mt-10 text-sm font-body text-muted-foreground leading-relaxed space-y-2">
+            <p>
+              Σχετικά άρθρα: <Link to="/arthra/misthotirio-symvolaio-ti-prepei-na-prosexete" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">Μισθωτήριο Συμβόλαιο: Τι Πρέπει να Προσέξετε</Link> και <Link to="/arthra/synainetiko-diazygio-stin-ellada" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">Συναινετικό Διαζύγιο στην Ελλάδα</Link>.
+            </p>
           </div>
         </div>
       </section>

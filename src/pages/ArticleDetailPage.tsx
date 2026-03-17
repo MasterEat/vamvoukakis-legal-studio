@@ -82,8 +82,12 @@ export default function ArticleDetailPage() {
               </div>
             ))}
 
+            <p className="pt-4 border-t border-border">
+              Για σχετική υποστήριξη στο <Link to="/tomeis-eidikefsis" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">αστικό δίκαιο και το δίκαιο ακινήτων</Link> μπορείτε να δείτε τους τομείς εξειδίκευσης ή να <Link to="/epikoinonia" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">επικοινωνήσετε με δικηγόρο στην Αθήνα</Link>.
+            </p>
+
             {article.signatureBlock ? (
-              <div className="pt-6 border-t border-border">
+              <div className="pt-6">
                 <div className="space-y-1 text-sm text-muted-foreground">
                   {article.signatureBlock.map((line, index) => (
                     <p key={line} className={index === 0 ? "text-base font-heading text-foreground" : undefined}>
