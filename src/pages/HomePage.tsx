@@ -62,6 +62,7 @@ export default function HomePage() {
     <Layout>
       <SEOHead
         title="Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ"
+        description="Δικηγορικό γραφείο στην Αθήνα με εξειδίκευση στο αστικό δίκαιο και το δίκαιο ακινήτων. Υπεύθυνη και στρατηγική νομική υποστήριξη για ιδιώτες και επιχειρήσεις."
 
         canonical="/"
         structuredData={structuredData}

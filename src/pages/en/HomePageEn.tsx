@@ -19,7 +19,7 @@ export default function HomePageEn() {
     <Layout>
       <SEOHead
         title="Law Office"
-        description="Vamvoukakis Law Office in Athens offers trusted legal services in civil, criminal, commercial and real estate law."
+        description="Law office in Athens specializing in civil law and real estate law. Responsible and strategic legal support for individuals and businesses."
         canonical="/en"
         lang="en"
         hrefLangs={[
