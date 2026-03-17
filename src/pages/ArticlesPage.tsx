@@ -22,7 +22,7 @@ export default function ArticlesPage() {
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Νομικά Άρθρα</h1>
             <p className="text-muted-foreground font-body leading-relaxed">
-
+              Δείτε αναλύσεις που συνδέονται με το <Link to="/tomeis-eidikefsis" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">αστικό δίκαιο και το δίκαιο ακινήτων</Link> ή <Link to="/epikoinonia" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">επικοινωνήστε με δικηγόρο στην Αθήνα</Link> για εξατομικευμένη νομική καθοδήγηση.
             </p>
           </div>
 
