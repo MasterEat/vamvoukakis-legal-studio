@@ -90,7 +90,7 @@ export default function Header() {
         <Link
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
-          className="flex items-center pr-2"
+          className="flex items-center gap-2.5 md:gap-3 pr-2"
         >
           <img
             src={logoSymbol}
@@ -99,7 +99,7 @@ export default function Header() {
             loading="eager"
             decoding="async"
           />
-          <span className="flex flex-col justify-center leading-none min-w-0 pt-0.5">
+          <span className="flex min-w-0 flex-col justify-center leading-none">
             <span className={`font-heading text-[13px] sm:text-sm font-semibold transition-colors duration-500 whitespace-nowrap ${
                 lang === "el"
                 ? "md:text-[15px] lg:text-[14px] xl:text-[15px] tracking-[0.03em]"
