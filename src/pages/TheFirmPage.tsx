@@ -4,7 +4,17 @@ import SEOHead from "@/components/SEOHead";
 export default function TheFirmPage() {
   return (
     <Layout>
-      <SEOHead title="Το Γραφείο" description="Η φιλοσοφία και η προσέγγιση του Δικηγορικού Γραφείου Βαμβουκάκη. Εξατομικευμένη νομική καθοδήγηση με αξιοπιστία και διακριτικότητα." canonical="/to-grafeio" />
+      <SEOHead
+        title="Το Γραφείο"
+        description="Η φιλοσοφία και η προσέγγιση του Δικηγορικού Γραφείου Βαμβουκάκη. Εξατομικευμένη νομική καθοδήγηση με αξιοπιστία και διακριτικότητα."
+        canonical="/to-grafeio"
+        lang="el"
+        hrefLangs={[
+          { lang: "el", href: "/to-grafeio" },
+          { lang: "en", href: "/en/the-firm" },
+          { lang: "de", href: "/de/kanzlei" },
+        ]}
+      />
       
       <section className="section-padding bg-background">
         <div className="container-narrow">
