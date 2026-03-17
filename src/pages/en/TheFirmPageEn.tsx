@@ -4,7 +4,17 @@ import SEOHead from "@/components/SEOHead";
 export default function TheFirmPageEn() {
   return (
     <Layout>
-      <SEOHead title="The Firm" description="Philosophy and approach of Vamvoukakis Law Office. Personalized legal guidance with trust and discretion." canonical="/en/the-firm" lang="en" />
+      <SEOHead
+        title="The Firm"
+        description="Philosophy and approach of Vamvoukakis Law Office. Personalized legal guidance with trust and discretion."
+        canonical="/en/the-firm"
+        lang="en"
+        hrefLangs={[
+          { lang: "el", href: "/to-grafeio" },
+          { lang: "en", href: "/en/the-firm" },
+          { lang: "de", href: "/de/kanzlei" },
+        ]}
+      />
       <section className="section-padding bg-background">
         <div className="container-narrow">
           <div className="gold-divider-left mb-8" />

@@ -21,6 +21,21 @@ export default function SEOHead({
 }: SEOHeadProps) {
   const fullTitle = `${title} | Δικηγορικό Γραφείο Βαμβουκάκη`;
   const baseUrl = "https://advocat.gr";
+  const alternateLinks = hrefLangs
+    ? (() => {
+        const hasXDefault = hrefLangs.some((hl) => hl.lang === "x-default");
+
+        if (hasXDefault) {
+          return hrefLangs;
+        }
+
+        const xDefaultHref = hrefLangs.find((hl) => hl.lang === "el")?.href ?? canonical;
+
+        return xDefaultHref
+          ? [...hrefLangs, { lang: "x-default", href: xDefaultHref }]
+          : hrefLangs;
+      })()
+    : undefined;
 
   return (
     <Helmet>
@@ -39,8 +54,8 @@ export default function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
 
-      {hrefLangs?.map((hl) => (
-        <link key={hl.lang} rel="alternate" hrefLang={hl.lang} href={`${baseUrl}${hl.href}`} />
+      {alternateLinks?.map((hl) => (
+        <link key={`${hl.lang}-${hl.href}`} rel="alternate" hrefLang={hl.lang} href={`${baseUrl}${hl.href}`} />
       ))}
 
       {structuredData && (

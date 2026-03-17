@@ -4,7 +4,17 @@ import SEOHead from "@/components/SEOHead";
 export default function KanzleiPage() {
   return (
     <Layout>
-      <SEOHead title="Kanzlei" description="Philosophie und Ansatz der Kanzlei Vamvoukakis. Personalisierte Rechtsberatung mit Vertrauen und Diskretion." canonical="/de/kanzlei" lang="de" />
+      <SEOHead
+        title="Kanzlei"
+        description="Philosophie und Ansatz der Kanzlei Vamvoukakis. Personalisierte Rechtsberatung mit Vertrauen und Diskretion."
+        canonical="/de/kanzlei"
+        lang="de"
+        hrefLangs={[
+          { lang: "el", href: "/to-grafeio" },
+          { lang: "en", href: "/en/the-firm" },
+          { lang: "de", href: "/de/kanzlei" },
+        ]}
+      />
       <section className="section-padding bg-background">
         <div className="container-narrow">
           <div className="gold-divider-left mb-8" />
