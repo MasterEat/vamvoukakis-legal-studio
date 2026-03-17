@@ -22,12 +22,14 @@ import TheFirmPageEn from "./pages/en/TheFirmPageEn";
 import ProfilePageEn from "./pages/en/ProfilePageEn";
 import PracticeAreasPageEn from "./pages/en/PracticeAreasPageEn";
 import ContactPageEn from "./pages/en/ContactPageEn";
+import PrivacyPolicyPageEn from "./pages/en/PrivacyPolicyPageEn";
 
 import HomePageDe from "./pages/de/HomePageDe";
 import KanzleiPage from "./pages/de/KanzleiPage";
 import ProfilPage from "./pages/de/ProfilPage";
 import RechtsgebietePage from "./pages/de/RechtsgebietePage";
 import KontaktPage from "./pages/de/KontaktPage";
+import DatenschutzerklarungPage from "./pages/de/DatenschutzerklarungPage";
 
 import NotFound from "./pages/NotFound";
 
@@ -63,6 +65,7 @@ const App = () => (
             <Route path="/en/profile" element={<ProfilePageEn />} />
             <Route path="/en/practice-areas" element={<PracticeAreasPageEn />} />
             <Route path="/en/contact" element={<ContactPageEn />} />
+            <Route path="/en/privacy-policy" element={<PrivacyPolicyPageEn />} />
 
             {/* German */}
             <Route path="/de" element={<HomePageDe />} />
@@ -70,6 +73,7 @@ const App = () => (
             <Route path="/de/profil" element={<ProfilPage />} />
             <Route path="/de/rechtsgebiete" element={<RechtsgebietePage />} />
             <Route path="/de/kontakt" element={<KontaktPage />} />
+            <Route path="/de/datenschutzerklarung" element={<DatenschutzerklarungPage />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
