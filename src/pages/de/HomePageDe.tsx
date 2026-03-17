@@ -19,7 +19,7 @@ export default function HomePageDe() {
     <Layout>
       <SEOHead
         title="Kanzlei"
-        description="Die Kanzlei Vamvoukakis in Athen bietet verlässliche Rechtsberatung im Zivil-, Straf-, Handels- und Immobilienrecht."
+        description="Anwaltskanzlei in Athen mit Spezialisierung auf Zivilrecht und Immobilienrecht. Verantwortungsvolle und strategische rechtliche Unterstützung für Privatpersonen und Unternehmen."
         canonical="/de"
         lang="de"
         hrefLangs={[
