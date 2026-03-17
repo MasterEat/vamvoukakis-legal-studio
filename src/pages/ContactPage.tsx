@@ -1,4 +1,6 @@
 import { ArrowRight, Mail, MapPin, Phone, Clock3 } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -6,6 +8,47 @@ import DirectionsButton from "@/components/DirectionsButton";
 import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const hasConsent = formData.get("consent");
+
+    if (!hasConsent) {
+      setSubmitError("Παρακαλούμε αποδεχτείτε την Πολιτική Απορρήτου.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpqyojpn", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      setIsSubmitted(true);
+      form.reset();
+    } catch {
+      setSubmitError("Παρουσιάστηκε σφάλμα κατά την αποστολή. Παρακαλούμε δοκιμάστε ξανά.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout>
       <SEOHead
@@ -90,24 +133,52 @@ export default function ContactPage() {
               </p>
               <div className="premium-card">
                 <h2 className="font-heading text-2xl mb-6">Φόρμα Επικοινωνίας</h2>
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                {isSubmitted ? (
+                  <p className="font-body text-sm text-foreground leading-relaxed">
+                    Το μήνυμά σας στάλθηκε επιτυχώς. Θα επικοινωνήσουμε μαζί σας το συντομότερο δυνατό.
+                  </p>
+                ) : null}
+                <form
+                  className="space-y-5"
+                  action="https://formspree.io/f/xpqyojpn"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                >
+                  <input type="hidden" name="_subject" value="Νέο μήνυμα από το advocat.gr" />
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
                   <div>
                     <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Ονοματεπώνυμο</label>
-                    <input type="text" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                    <input type="text" name="name" required className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
                   </div>
                   <div>
                     <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Τηλέφωνο</label>
-                    <input type="tel" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                    <input type="tel" name="phone" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
                   </div>
                   <div>
                     <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Email</label>
-                    <input type="email" className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
+                    <input type="email" name="email" required className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors" />
                   </div>
                   <div>
                     <label className="block text-xs tracking-widest uppercase font-body text-muted-foreground mb-2">Μήνυμα</label>
-                    <textarea rows={5} className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" />
+                    <textarea name="message" required rows={5} className="w-full bg-background border border-border px-4 py-3 font-body text-sm focus:outline-none focus:border-accent transition-colors resize-none" />
                   </div>
-                  <Button variant="default" size="lg" className="w-full">
+                  <div className="flex items-start gap-2">
+                    <input id="consent" type="checkbox" name="consent" required className="mt-1" />
+                    <label htmlFor="consent" className="font-body text-sm text-muted-foreground leading-relaxed">
+                      Αποδέχομαι την{" "}
+                      <Link to="/politiki-aporritou" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4">
+                        Πολιτική Απορρήτου
+                      </Link>
+                    </label>
+                  </div>
+                  {submitError ? <p className="font-body text-sm text-destructive">{submitError}</p> : null}
+                  <Button type="submit" variant="default" size="lg" className="w-full" disabled={isSubmitting}>
                     Αποστολή <ArrowRight size={14} />
                   </Button>
                 </form>
