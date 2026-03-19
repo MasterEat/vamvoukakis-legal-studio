@@ -51,7 +51,7 @@ export default function Footer() {
         { label: "Contact", path: "/en/contact" },
       ],
       legalLinks: [
-        { label: "Privacy Policy", path: "/politiki-aporritou" },
+        { label: "Privacy Policy", path: "/en/privacy-policy" },
         { label: "Cookies", path: "/cookies" },
       ],
     },
@@ -75,7 +75,7 @@ export default function Footer() {
         { label: "Kontakt", path: "/de/kontakt" },
       ],
       legalLinks: [
-        { label: "Datenschutz", path: "/politiki-aporritou" },
+        { label: "Datenschutz", path: "/de/datenschutzerklarung" },
         { label: "Cookies", path: "/cookies" },
       ],
     },

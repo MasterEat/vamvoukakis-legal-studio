@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Scale, Home } from "lucide-react";
+import { ArrowRight, Scale, Shield, Briefcase, Home } from "lucide-react";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 
@@ -23,7 +23,49 @@ const areas = [
         desc: "Διεκδίκηση αποζημιώσεων, συμβάσεις και αστικές διαφορές κάθε φύσεως.",
       },
     ],
-    path: "/epikoinonia",
+    path: "/astiko-dikaio",
+  },
+  {
+    icon: Shield,
+    title: "Ποινικό Δίκαιο",
+    intro:
+      "Παρέχουμε διακριτική και μεθοδική υπεράσπιση σε κάθε στάδιο της ποινικής διαδικασίας, με έμφαση στην προστασία των δικαιωμάτων σας.",
+    sections: [
+      {
+        title: "Πλημμελήματα & Κακουργήματα:",
+        desc: "Νομική εκπροσώπηση και υπεράσπιση ενώπιον ανακριτικών και δικαστικών αρχών.",
+      },
+      {
+        title: "Προδικασία:",
+        desc: "Στρατηγική καθοδήγηση από το στάδιο της προκαταρκτικής εξέτασης έως και την απολογία.",
+      },
+      {
+        title: "Υπεράσπιση στο Ακροατήριο:",
+        desc: "Προετοιμασία υποθέσεων με συνέπεια και αποτελεσματική παρουσία ενώπιον των ποινικών δικαστηρίων.",
+      },
+    ],
+    path: "/poiniko-dikaio",
+  },
+  {
+    icon: Briefcase,
+    title: "Εμπορικό Δίκαιο",
+    intro:
+      "Υποστηρίζουμε επιχειρήσεις και επαγγελματίες σε συναλλαγές, συμβάσεις και εμπορικές διαφορές με πρακτική νομική προσέγγιση.",
+    sections: [
+      {
+        title: "Εμπορικές Συμβάσεις:",
+        desc: "Σύνταξη, έλεγχος και διαπραγμάτευση συμβάσεων με γνώμονα τη νομική ασφάλεια της δραστηριότητάς σας.",
+      },
+      {
+        title: "Εταιρική Υποστήριξη:",
+        desc: "Καθοδήγηση σε ζητήματα λειτουργίας, εκπροσώπησης και συμμόρφωσης επιχειρήσεων.",
+      },
+      {
+        title: "Εμπορικές Διαφορές:",
+        desc: "Στρατηγική διαχείριση διενέξεων με στόχο την προστασία των συμφερόντων της επιχείρησής σας.",
+      },
+    ],
+    path: "/emporiko-dikaio",
   },
   {
     icon: Home,
@@ -44,7 +86,7 @@ const areas = [
         desc: "Διαχείριση μισθωτικών διαφορών, σύνταξη ιδιωτικών συμφωνητικών και διεκδίκηση οφειλόμενων μισθωμάτων.",
       },
     ],
-    path: "/epikoinonia",
+    path: "/dikaio-akiniton",
   },
 ];
 
@@ -59,7 +101,7 @@ export default function PracticeAreasPage() {
             <div className="gold-divider-left mb-8" />
             <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl mb-6">Τομείς Εξειδίκευσης</h1>
             <p className="text-muted-foreground font-body leading-relaxed mb-4">
-              Παρέχουμε ολοκληρωμένη νομική υποστήριξη σε δύο βασικούς τομείς δικαίου, με εξειδίκευση, υπευθυνότητα και προσωπική προσέγγιση σε κάθε υπόθεση.
+              Παρέχουμε ολοκληρωμένη νομική υποστήριξη σε τέσσερις βασικούς τομείς δικαίου, με εξειδίκευση, υπευθυνότητα και προσωπική προσέγγιση σε κάθε υπόθεση.
             </p>
             <p className="text-muted-foreground font-body leading-relaxed">
               Για εξατομικευμένη καθοδήγηση από <Link to="/epikoinonia" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">δικηγόρο στην Αθήνα</Link>, μπορείτε να επικοινωνήσετε μαζί μας. Δείτε επίσης τα <Link to="/arthra" className="text-foreground hover:text-accent transition-colors underline underline-offset-4">νομικά άρθρα για αστικό δίκαιο και δίκαιο ακινήτων</Link>.
@@ -79,7 +121,7 @@ export default function PracticeAreasPage() {
                   ))}
                 </div>
                 <span className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 group-hover:gap-3 transition-all">
-                  Επικοινωνήστε για Αστικό Δίκαιο & Ακίνητα <ArrowRight size={14} />
+                  Μάθετε περισσότερα <ArrowRight size={14} />
                 </span>
               </Link>
             ))}
