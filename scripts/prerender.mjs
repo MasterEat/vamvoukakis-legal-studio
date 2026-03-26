@@ -28,7 +28,7 @@ await build({
   },
 });
 
-const { render, prerenderRoutes } = await import(pathToFileURL(path.join(ssrOutDir, "entry-server.mjs")).href);
+
 const routes = prerenderRoutes;
 
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
