@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 interface SEOHeadProps {
   title: string;
@@ -10,6 +11,33 @@ interface SEOHeadProps {
   hrefLangs?: { lang: string; href: string }[];
 }
 
+const BASE_URL = "https://advocat.gr";
+
+const hasProtocol = (url: string) => /^https?:\/\//i.test(url);
+
+const normalizePath = (path: string) => {
+  if (!path) {
+    return "/";
+  }
+
+  const withLeadingSlash = path.startsWith("/") ? path : `/${path}`;
+
+  if (withLeadingSlash === "/") {
+    return "/";
+  }
+
+  return withLeadingSlash.replace(/\/+$/, "");
+};
+
+const toAbsoluteUrl = (pathOrUrl: string) => {
+  if (hasProtocol(pathOrUrl)) {
+    return pathOrUrl;
+  }
+
+  const normalizedPath = normalizePath(pathOrUrl);
+  return `${BASE_URL}${normalizedPath}`;
+};
+
 export default function SEOHead({
   title,
   description,
@@ -19,8 +47,12 @@ export default function SEOHead({
   structuredData,
   hrefLangs,
 }: SEOHeadProps) {
+  const { pathname } = useLocation();
+
   const fullTitle = `${title} | Δικηγορικό Γραφείο Βαμβουκάκη`;
-  const baseUrl = "https://advocat.gr";
+  const canonicalPath = normalizePath(canonical ?? pathname);
+  const canonicalUrl = toAbsoluteUrl(canonicalPath);
+
   const alternateLinks = hrefLangs
     ? (() => {
         const hasXDefault = hrefLangs.some((hl) => hl.lang === "x-default");
@@ -29,7 +61,7 @@ export default function SEOHead({
           return hrefLangs;
         }
 
-        const xDefaultHref = hrefLangs.find((hl) => hl.lang === "el")?.href ?? canonical;
+        const xDefaultHref = hrefLangs.find((hl) => hl.lang === "el")?.href ?? canonicalPath;
 
         return xDefaultHref
           ? [...hrefLangs, { lang: "x-default", href: xDefaultHref }]
@@ -42,20 +74,20 @@ export default function SEOHead({
       <html lang={lang} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {canonical && <link rel="canonical" href={`${baseUrl}${canonical}`} />}
-      
+      <link rel="canonical" href={canonicalUrl} />
+
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      {canonical && <meta property="og:url" content={`${baseUrl}${canonical}`} />}
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="advocat.gr" />
-      
+
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
 
       {alternateLinks?.map((hl) => (
-        <link key={`${hl.lang}-${hl.href}`} rel="alternate" hrefLang={hl.lang} href={`${baseUrl}${hl.href}`} />
+        <link key={`${hl.lang}-${hl.href}`} rel="alternate" hrefLang={hl.lang} href={toAbsoluteUrl(hl.href)} />
       ))}
 
       {structuredData && (
