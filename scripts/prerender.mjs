@@ -28,16 +28,7 @@ await build({
   },
 });
 
-const ssrEntryCandidates = ["entry-server.js", "entry-server.mjs", "entry-server.cjs"];
-const ssrEntryPath = ssrEntryCandidates
-  .map((filename) => path.join(ssrOutDir, filename))
-  .find((candidatePath) => existsSync(candidatePath));
 
-if (!ssrEntryPath) {
-  throw new Error(`Could not find SSR entry output in ${ssrOutDir}. Tried: ${ssrEntryCandidates.join(", ")}`);
-}
-
-const { render, prerenderRoutes } = await import(pathToFileURL(ssrEntryPath).href);
 const routes = prerenderRoutes;
 
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
