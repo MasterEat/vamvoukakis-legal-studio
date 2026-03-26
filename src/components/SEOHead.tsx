@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
+import { getDefaultHreflangs } from "@/lib/hreflang";
 
 interface SEOHeadProps {
   title: string;
@@ -62,12 +63,9 @@ export default function SEOHead({
         }
 
         const xDefaultHref = hrefLangs.find((hl) => hl.lang === "el")?.href ?? canonicalPath;
-
-        return xDefaultHref
-          ? [...hrefLangs, { lang: "x-default", href: xDefaultHref }]
-          : hrefLangs;
+        return [...hrefLangs, { lang: "x-default", href: xDefaultHref }];
       })()
-    : undefined;
+    : getDefaultHreflangs(canonicalPath);
 
   return (
     <Helmet>
