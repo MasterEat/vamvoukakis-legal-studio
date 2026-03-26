@@ -2,7 +2,6 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "node
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { build } from "vite";
-import { prerenderRoutes } from "../src/lib/routeManifest.js";
 
 const rootDir = process.cwd();
 const clientOutDir = path.join(rootDir, "dist");
@@ -29,16 +28,7 @@ await build({
   },
 });
 
-const ssrEntryCandidates = ["entry-server.js", "entry-server.mjs", "entry-server.cjs"];
-const ssrEntryPath = ssrEntryCandidates
-  .map((filename) => path.join(ssrOutDir, filename))
-  .find((candidatePath) => existsSync(candidatePath));
 
-if (!ssrEntryPath) {
-  throw new Error(`Could not find SSR entry output in ${ssrOutDir}. Tried: ${ssrEntryCandidates.join(", ")}`);
-}
-
-const { render } = await import(pathToFileURL(ssrEntryPath).href);
 const routes = prerenderRoutes;
 
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
