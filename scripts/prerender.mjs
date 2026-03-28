@@ -27,26 +27,27 @@ function getOutputPath(route) {
 }
 
 function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) {
-  const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
-  const withHtmlAttrs = template.replace(/<html[^>]*>/i, htmlOpenTag);
+  const htmlTagPattern = /<html[^>]*>/i;
+  const headClosePattern = /<\/head>/i;
+  const rootPattern = /<div\s+id=["']root["'][^>]*><\/div>/i;
 
-  if (withHtmlAttrs === template) {
+  if (!htmlTagPattern.test(template)) {
     throw new Error("Failed to locate <html> tag in template.");
   }
 
-  const withHead = withHtmlAttrs.replace(/<\/head>/i, `${headTags}</head>`);
-
-  if (withHead === withHtmlAttrs) {
+  if (!headClosePattern.test(template)) {
     throw new Error("Failed to locate </head> in template.");
   }
 
-  const withApp = withHead.replace(/<div id="root"><\/div>/i, `<div id="root">${appHtml}</div>`);
-
-  if (withApp === withHead) {
+  if (!rootPattern.test(template)) {
     throw new Error("Failed to locate SSR root placeholder (<div id=\"root\"></div>) in template.");
   }
 
-  return withApp;
+  const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
+  const withHtmlAttrs = template.replace(htmlTagPattern, htmlOpenTag);
+  const withHead = withHtmlAttrs.replace(headClosePattern, `${headTags}</head>`);
+
+  return withHead.replace(rootPattern, `<div id="root">${appHtml}</div>`);
 }
 
 if (existsSync(ssrOutDir)) {
