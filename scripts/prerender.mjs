@@ -85,18 +85,35 @@ if (!Array.isArray(prerenderRoutes) || prerenderRoutes.length === 0) {
 }
 
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
+const generatedFiles = [];
+
+console.log(`[prerender] Resolved prerenderRoutes (${prerenderRoutes.length}):`);
+console.log(JSON.stringify(prerenderRoutes, null, 2));
 
 for (const route of prerenderRoutes) {
   const renderedRoute = render(route);
+  const appHtmlLength = renderedRoute?.appHtml?.trim()?.length ?? 0;
+  const headTagsLength = renderedRoute?.headTags?.trim()?.length ?? 0;
   const html = injectPrerenderedHtml(template, renderedRoute);
 
   const outputPath = getOutputPath(route);
   mkdirSync(path.dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, html, "utf-8");
+
+  const relativeOutputPath = path.relative(rootDir, outputPath);
+  generatedFiles.push(relativeOutputPath);
+
+  console.log(
+    `[prerender] route=${route} appHtmlNonEmpty=${appHtmlLength > 0} appHtmlLength=${appHtmlLength} headTagsNonEmpty=${headTagsLength > 0} headTagsLength=${headTagsLength} output=${relativeOutputPath}`,
+  );
 }
 
 const reportPath = path.join(clientOutDir, "prerendered-routes.json");
 writeFileSync(reportPath, JSON.stringify(prerenderRoutes, null, 2), "utf-8");
 
 rmSync(ssrOutDir, { recursive: true, force: true });
-console.log(`Prerendered ${prerenderRoutes.length} routes.`);
+console.log(`[prerender] SUCCESS: Prerendered ${prerenderRoutes.length} routes.`);
+console.log("[prerender] Generated route files:");
+for (const filePath of generatedFiles) {
+  console.log(`- ${filePath}`);
+}
