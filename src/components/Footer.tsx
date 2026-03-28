@@ -19,6 +19,7 @@ export default function Footer() {
         email: "Email",
         officeHours: "Ώρες Λειτουργίας",
       },
+      addressLine: contactDetails.addressLine,
       links: [
         { label: "Αρχική", path: "/" },
         { label: "Το Γραφείο", path: "/to-grafeio" },
@@ -43,6 +44,7 @@ export default function Footer() {
         email: "Email",
         officeHours: "Office Hours",
       },
+      addressLine: "6 Pireos Street, Omonia, 10434 Athens, Attica, Greece",
       links: [
         { label: "Home", path: "/en" },
         { label: "The Firm", path: "/en/the-firm" },
@@ -67,6 +69,7 @@ export default function Footer() {
         email: "E-Mail",
         officeHours: "Öffnungszeiten",
       },
+      addressLine: "Pireos Straße 6, Omonia, 10434 Athen, Attika, Griechenland",
       links: [
         { label: "Startseite", path: "/de" },
         { label: "Kanzlei", path: "/de/kanzlei" },
@@ -124,7 +127,7 @@ export default function Footer() {
                 <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
                 <div>
                   <p className="text-[10px] tracking-widest uppercase font-body text-primary-foreground/40 mb-1">{c.labels.address}</p>
-                  <span className="text-sm text-primary-foreground/70 font-body">{contactDetails.addressLine}</span>
+                  <span className="text-sm text-primary-foreground/70 font-body">{c.addressLine}</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
