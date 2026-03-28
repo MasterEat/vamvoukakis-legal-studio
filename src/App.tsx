@@ -1,3 +1,5 @@
+import type { ComponentType, ReactNode } from "react";
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,19 +9,34 @@ import { HelmetProvider } from "react-helmet-async";
 
 import AppRoutes from "@/AppRoutes";
 
-const queryClient = new QueryClient();
+interface AppContentProps {
+  Router: ComponentType<{ children: ReactNode }>;
+  queryClient: QueryClient;
+}
+
+export const createAppQueryClient = () => new QueryClient();
+
+export const AppContent = ({ Router, queryClient }: AppContentProps) => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <Router>
+        <AppRoutes />
+      </Router>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+const clientQueryClient = createAppQueryClient();
+
+const BrowserRouterWrapper = ({ children }: { children: ReactNode }) => (
+  <BrowserRouter>{children}</BrowserRouter>
+);
 
 const App = () => (
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <AppContent Router={BrowserRouterWrapper} queryClient={clientQueryClient} />
   </HelmetProvider>
 );
 

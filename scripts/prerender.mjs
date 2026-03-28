@@ -26,6 +26,30 @@ function getOutputPath(route) {
   return path.join(clientOutDir, route.replace(/^\//, ""), "index.html");
 }
 
+function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) {
+  const htmlTagPattern = /<html[^>]*>/i;
+  const headClosePattern = /<\/head>/i;
+  const rootPattern = /<div\s+id=["']root["'][^>]*><\/div>/i;
+
+  if (!htmlTagPattern.test(template)) {
+    throw new Error("Failed to locate <html> tag in template.");
+  }
+
+  if (!headClosePattern.test(template)) {
+    throw new Error("Failed to locate </head> in template.");
+  }
+
+  if (!rootPattern.test(template)) {
+    throw new Error("Failed to locate SSR root placeholder (<div id=\"root\"></div>) in template.");
+  }
+
+  const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
+  const withHtmlAttrs = template.replace(htmlTagPattern, htmlOpenTag);
+  const withHead = withHtmlAttrs.replace(headClosePattern, `${headTags}</head>`);
+
+  return withHead.replace(rootPattern, `<div id="root">${appHtml}</div>`);
+}
+
 if (existsSync(ssrOutDir)) {
   rmSync(ssrOutDir, { recursive: true, force: true });
 }
@@ -63,16 +87,12 @@ if (!Array.isArray(prerenderRoutes) || prerenderRoutes.length === 0) {
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
 
 for (const route of prerenderRoutes) {
-  const { appHtml, headTags, htmlAttributes } = render(route);
-
-  const htmlWithHead = template
-    .replace(/<html[^>]*>/, `<html${htmlAttributes ? ` ${htmlAttributes}` : ""}>`)
-    .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
-    .replace("</head>", `${headTags}</head>`);
+  const renderedRoute = render(route);
+  const html = injectPrerenderedHtml(template, renderedRoute);
 
   const outputPath = getOutputPath(route);
   mkdirSync(path.dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, htmlWithHead, "utf-8");
+  writeFileSync(outputPath, html, "utf-8");
 }
 
 const reportPath = path.join(clientOutDir, "prerendered-routes.json");

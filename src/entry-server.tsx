@@ -1,12 +1,9 @@
+import type { ReactNode } from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StaticRouter } from "react-router-dom/server";
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import AppRoutes from "@/AppRoutes";
+import { AppContent, createAppQueryClient } from "@/App";
 import { prerenderRoutes } from "@/lib/routeManifest";
 
 interface HelmetContext {
@@ -21,19 +18,15 @@ interface HelmetContext {
 
 export function render(url: string) {
   const helmetContext: HelmetContext = {};
-  const queryClient = new QueryClient();
+  const queryClient = createAppQueryClient();
+
+  const StaticRouterWrapper = ({ children }: { children: ReactNode }) => (
+    <StaticRouter location={url}>{children}</StaticRouter>
+  );
 
   const appHtml = renderToString(
     <HelmetProvider context={helmetContext}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <StaticRouter location={url}>
-            <AppRoutes />
-          </StaticRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <AppContent Router={StaticRouterWrapper} queryClient={queryClient} />
     </HelmetProvider>,
   );
 
@@ -45,6 +38,5 @@ export function render(url: string) {
     htmlAttributes: helmet?.htmlAttributes.toString() ?? "",
   };
 }
-
 
 export { prerenderRoutes };
