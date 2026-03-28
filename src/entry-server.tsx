@@ -16,16 +16,17 @@ interface HelmetContext {
   };
 }
 
+const PassthroughRouter = ({ children }: { children: ReactNode }) => <>{children}</>;
+
 export function render(url: string) {
   const helmetContext: HelmetContext = {};
   const queryClient = createAppQueryClient();
-  const StaticRouterWrapper = ({ children }: { children: ReactNode }) => (
-    <StaticRouter location={url}>{children}</StaticRouter>
-  );
 
   const appHtml = renderToString(
     <HelmetProvider context={helmetContext}>
-      <AppContent Router={StaticRouterWrapper} queryClient={queryClient} />
+      <StaticRouter location={url}>
+        <AppContent Router={PassthroughRouter} queryClient={queryClient} />
+      </StaticRouter>
     </HelmetProvider>,
   );
 
