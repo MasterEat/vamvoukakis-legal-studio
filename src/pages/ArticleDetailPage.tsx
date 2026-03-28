@@ -13,12 +13,38 @@ export default function ArticleDetailPage() {
     return <Navigate to="/arthra" replace />;
   }
 
+  const articleUrl = `https://advocat.gr/arthra/${article.slug}`;
+  const articleSchema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    author: {
+      "@type": "Person",
+      name: article.authorBlock?.[0] ?? "Εμμανουήλ Βαμβουκάκης",
+    },
+    publisher: {
+      "@type": "LegalService",
+      name: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
+      url: "https://advocat.gr",
+    },
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+  };
+
+  if (article.heroImage) {
+    articleSchema.image = `https://advocat.gr${article.heroImage}`;
+  }
+
   return (
     <Layout>
       <SEOHead
         title={article.title}
         description={article.excerpt}
         canonical={`/arthra/${article.slug}`}
+        ogType="article"
+        hrefLangs={null}
+        structuredData={articleSchema}
       />
 
       <section className="section-padding bg-background">
@@ -63,7 +89,7 @@ export default function ArticleDetailPage() {
             </figure>
           )}
 
-          <div className="space-y-10 text-muted-foreground font-body leading-relaxed">
+          <article className="space-y-10 text-muted-foreground font-body leading-relaxed">
             <p className="text-foreground text-lg">{article.intro}</p>
 
             {article.sections.map((section, index) => (
@@ -124,7 +150,7 @@ export default function ArticleDetailPage() {
                 </Button>
               </div>
             )}
-          </div>
+          </article>
         </div>
       </section>
     </Layout>

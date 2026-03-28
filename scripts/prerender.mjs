@@ -29,6 +29,7 @@ function getOutputPath(route) {
 function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) {
   const htmlTagPattern = /<html[^>]*>/i;
   const headClosePattern = /<\/head>/i;
+  const titleTagPattern = /<title\b[^>]*>[\s\S]*?<\/title>/i;
   const rootOpenPattern = /<div\b[^>]*\bid=(["'])root\1[^>]*>/i;
 
   if (!htmlTagPattern.test(template)) {
@@ -41,7 +42,10 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
 
   const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
   const withHtmlAttrs = template.replace(htmlTagPattern, htmlOpenTag);
-  const withHead = withHtmlAttrs.replace(headClosePattern, `${headTags}</head>`);
+  const sanitizedTemplate = headTags?.includes("<title")
+    ? withHtmlAttrs.replace(titleTagPattern, "")
+    : withHtmlAttrs;
+  const withHead = sanitizedTemplate.replace(headClosePattern, `${headTags}</head>`);
   const rootOpenMatch = rootOpenPattern.exec(withHead);
 
   if (!rootOpenMatch || rootOpenMatch.index < 0) {
