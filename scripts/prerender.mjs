@@ -29,7 +29,8 @@ function getOutputPath(route) {
 function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) {
   const htmlTagPattern = /<html[^>]*>/i;
   const headClosePattern = /<\/head>/i;
-  const rootPattern = /<div\s+id=["']root["'][^>]*><\/div>/i;
+  const rootOpenMarker = '<div id="root">';
+  const divTagPattern = /<\/?div\b[^>]*>/gi;
 
   if (!htmlTagPattern.test(template)) {
     throw new Error("Failed to locate <html> tag in template.");
@@ -39,15 +40,40 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
     throw new Error("Failed to locate </head> in template.");
   }
 
-  if (!rootPattern.test(template)) {
-    throw new Error("Failed to locate SSR root placeholder (<div id=\"root\"></div>) in template.");
-  }
-
   const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
   const withHtmlAttrs = template.replace(htmlTagPattern, htmlOpenTag);
   const withHead = withHtmlAttrs.replace(headClosePattern, `${headTags}</head>`);
+  const rootStart = withHead.indexOf(rootOpenMarker);
 
-  return withHead.replace(rootPattern, `<div id="root">${appHtml}</div>`);
+  if (rootStart === -1) {
+    throw new Error("Failed to locate SSR root container opening marker (<div id=\"root\">) in template.");
+  }
+
+  const rootContentStart = rootStart + rootOpenMarker.length;
+  divTagPattern.lastIndex = rootContentStart;
+
+  let depth = 1;
+  let rootEnd = -1;
+  let match;
+
+  while ((match = divTagPattern.exec(withHead)) !== null) {
+    if (match[0].startsWith("</")) {
+      depth -= 1;
+    } else {
+      depth += 1;
+    }
+
+    if (depth === 0) {
+      rootEnd = match.index + match[0].length;
+      break;
+    }
+  }
+
+  if (rootEnd === -1) {
+    throw new Error("Failed to locate matching closing </div> for SSR root container.");
+  }
+
+  return `${withHead.slice(0, rootStart)}<div id="root">${appHtml}</div>${withHead.slice(rootEnd)}`;
 }
 
 if (existsSync(ssrOutDir)) {
