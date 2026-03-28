@@ -75,7 +75,7 @@ export default function ContactPageEn() {
                   <MapPin size={20} className="text-accent mt-1 shrink-0" />
                   <div>
                     <p className="font-body font-medium text-foreground">Address</p>
-                    <p className="text-muted-foreground font-body">{contactDetails.addressLine}</p>
+                    <p className="text-muted-foreground font-body">6 Pireos Street, Omonia, 10434 Athens, Attica, Greece</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
