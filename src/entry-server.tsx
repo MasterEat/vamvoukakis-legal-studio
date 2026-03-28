@@ -1,9 +1,10 @@
-import type { ReactNode } from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import { StaticRouter } from "react-router-dom/server";
+import { QueryClientProvider } from "@tanstack/react-query";
 
-import { AppContent, createAppQueryClient } from "@/App";
+import { createAppQueryClient } from "@/App";
+import AppRoutes from "@/AppRoutes";
 import { prerenderRoutes } from "@/lib/routeManifest";
 
 interface HelmetContext {
@@ -20,13 +21,13 @@ export function render(url: string) {
   const helmetContext: HelmetContext = {};
   const queryClient = createAppQueryClient();
 
-  const StaticRouterWrapper = ({ children }: { children: ReactNode }) => (
-    <StaticRouter location={url}>{children}</StaticRouter>
-  );
-
   const appHtml = renderToString(
     <HelmetProvider context={helmetContext}>
-      <AppContent Router={StaticRouterWrapper} queryClient={queryClient} />
+      <QueryClientProvider client={queryClient}>
+        <StaticRouter location={url}>
+          <AppRoutes />
+        </StaticRouter>
+      </QueryClientProvider>
     </HelmetProvider>,
   );
 
