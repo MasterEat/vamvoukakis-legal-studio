@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { build } from "vite";
@@ -6,6 +6,25 @@ import { build } from "vite";
 const rootDir = process.cwd();
 const clientOutDir = path.join(rootDir, "dist");
 const ssrOutDir = path.join(rootDir, ".ssr-temp");
+
+function findServerEntryFile(directory) {
+  const entries = readdirSync(directory, { withFileTypes: true });
+  const serverEntry = entries.find((entry) => entry.isFile() && /^entry-server\.(m?js|cjs)$/.test(entry.name));
+
+  if (!serverEntry) {
+    throw new Error(`Unable to locate SSR entry output in ${directory}.`);
+  }
+
+  return path.join(directory, serverEntry.name);
+}
+
+function getOutputPath(route) {
+  if (route === "/") {
+    return path.join(clientOutDir, "index.html");
+  }
+
+  return path.join(clientOutDir, route.replace(/^\//, ""), "index.html");
+}
 
 if (existsSync(ssrOutDir)) {
   rmSync(ssrOutDir, { recursive: true, force: true });
@@ -28,29 +47,36 @@ await build({
   },
 });
 
+const serverEntryFile = findServerEntryFile(ssrOutDir);
+const serverEntryModule = await import(pathToFileURL(serverEntryFile).href);
 
-const routes = prerenderRoutes;
+const { render, prerenderRoutes } = serverEntryModule;
+
+if (typeof render !== "function") {
+  throw new Error("SSR entry must export a render(url) function.");
+}
+
+if (!Array.isArray(prerenderRoutes) || prerenderRoutes.length === 0) {
+  throw new Error("SSR entry must export a non-empty prerenderRoutes array.");
+}
 
 const template = readFileSync(path.join(clientOutDir, "index.html"), "utf-8");
 
-for (const route of routes) {
+for (const route of prerenderRoutes) {
   const { appHtml, headTags, htmlAttributes } = render(route);
 
   const htmlWithHead = template
     .replace(/<html[^>]*>/, `<html${htmlAttributes ? ` ${htmlAttributes}` : ""}>`)
-    .replace("<div id=\"root\"></div>", `<div id=\"root\">${appHtml}</div>`)
+    .replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`)
     .replace("</head>", `${headTags}</head>`);
 
-  const outputPath = route === "/"
-    ? path.join(clientOutDir, "index.html")
-    : path.join(clientOutDir, route.replace(/^\//, ""), "index.html");
-
+  const outputPath = getOutputPath(route);
   mkdirSync(path.dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, htmlWithHead, "utf-8");
 }
 
 const reportPath = path.join(clientOutDir, "prerendered-routes.json");
-writeFileSync(reportPath, JSON.stringify(routes, null, 2), "utf-8");
+writeFileSync(reportPath, JSON.stringify(prerenderRoutes, null, 2), "utf-8");
 
 rmSync(ssrOutDir, { recursive: true, force: true });
-console.log(`Prerendered ${routes.length} routes.`);
+console.log(`Prerendered ${prerenderRoutes.length} routes.`);
