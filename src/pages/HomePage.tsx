@@ -39,24 +39,6 @@ const articles = [
   { title: "Αλλαγές στο οικογενειακό δίκαιο: Τι πρέπει να γνωρίζετε", date: "Δεκέμβριος 2023", excerpt: "Οι πρόσφατες τροποποιήσεις στον Αστικό Κώδικα και οι επιπτώσεις τους." },
 ];
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LegalService",
-  name: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
-  url: "https://advocat.gr",
-  telephone: contactDetails.telephone,
-  email: contactDetails.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Πειραιώς 6, Ομόνοια",
-    addressLocality: "Αθήνα",
-    addressRegion: "Αττική",
-    postalCode: "10434",
-    addressCountry: "GR",
-  },
-
-};
-
 export default function HomePage() {
   return (
     <Layout>
@@ -65,7 +47,6 @@ export default function HomePage() {
         description="Δικηγορικό γραφείο στην Αθήνα με εξειδίκευση στο αστικό δίκαιο και το δίκαιο ακινήτων. Υπεύθυνη και στρατηγική νομική υποστήριξη για ιδιώτες και επιχειρήσεις."
 
         canonical="/"
-        structuredData={structuredData}
         hrefLangs={[
           { lang: "el", href: "/" },
           { lang: "en", href: "/en" },
