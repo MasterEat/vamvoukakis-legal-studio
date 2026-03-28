@@ -2,6 +2,27 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 
 export default function AutonomousDrivingArticlePage() {
+  const articleUrl = "https://advocat.gr/arthra/aftonomi-odigisi-efthini-odigou";
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Αυτόνομη οδήγηση με «οδηγό» την Τεχνητή Νοημοσύνη: Πότε ευθύνεται ο οδηγός αν ένα αυτόνομο όχημα προκαλέσει ατύχημα;",
+    description: "Νομική ανάλυση για την αυτόνομη οδήγηση, τα επίπεδα αυτονομίας SAE, το ελληνικό και το γερμανικό δίκαιο και το πότε ευθύνεται ο οδηγός σε περίπτωση ατυχήματος.",
+    author: {
+      "@type": "Person",
+      name: "Εμμανουήλ Βαμβουκάκης",
+    },
+    publisher: {
+      "@type": "LegalService",
+      name: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
+      url: "https://advocat.gr",
+    },
+    datePublished: "2026-03-19",
+    mainEntityOfPage: articleUrl,
+    url: articleUrl,
+    image: "https://advocat.gr/articles/image6.webp",
+  };
+
   return (
     <Layout>
       <SEOHead
@@ -9,9 +30,12 @@ export default function AutonomousDrivingArticlePage() {
         description="Νομική ανάλυση για την αυτόνομη οδήγηση, τα επίπεδα αυτονομίας SAE, το ελληνικό και το γερμανικό δίκαιο και το πότε ευθύνεται ο οδηγός σε περίπτωση ατυχήματος."
         canonical="/arthra/aftonomi-odigisi-efthini-odigou"
         lang="el"
+        ogType="article"
+        hrefLangs={null}
+        structuredData={articleSchema}
       />
 
-      <main className="section-padding bg-background">
+      <section className="section-padding bg-background">
         <article className="container-wide max-w-4xl">
           <div className="mb-10">
             <div className="gold-divider-left mb-8" />
@@ -543,7 +567,7 @@ export default function AutonomousDrivingArticlePage() {
             </p>
           </div>
         </article>
-      </main>
+      </section>
     </Layout>
   );
 }

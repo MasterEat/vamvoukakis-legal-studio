@@ -9,7 +9,7 @@ interface SEOHeadProps {
   lang?: string;
   ogType?: string;
   structuredData?: object;
-  hrefLangs?: { lang: string; href: string }[];
+  hrefLangs?: { lang: string; href: string }[] | null;
 }
 
 const BASE_URL = "https://advocat.gr";
@@ -54,8 +54,10 @@ export default function SEOHead({
   const canonicalPath = normalizePath(canonical ?? pathname);
   const canonicalUrl = toAbsoluteUrl(canonicalPath);
 
-  const alternateLinks = hrefLangs
-    ? (() => {
+  const alternateLinks = hrefLangs === null
+    ? null
+    : hrefLangs
+      ? (() => {
         const hasXDefault = hrefLangs.some((hl) => hl.lang === "x-default");
 
         if (hasXDefault) {
@@ -65,7 +67,7 @@ export default function SEOHead({
         const xDefaultHref = hrefLangs.find((hl) => hl.lang === "el")?.href ?? canonicalPath;
         return [...hrefLangs, { lang: "x-default", href: xDefaultHref }];
       })()
-    : getDefaultHreflangs(canonicalPath);
+      : getDefaultHreflangs(canonicalPath);
 
   return (
     <Helmet>
