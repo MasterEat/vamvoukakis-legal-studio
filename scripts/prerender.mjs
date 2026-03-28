@@ -29,8 +29,7 @@ function getOutputPath(route) {
 function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) {
   const htmlTagPattern = /<html[^>]*>/i;
   const headClosePattern = /<\/head>/i;
-  const rootOpenMarker = '<div id="root">';
-  const divTagPattern = /<\/?div\b[^>]*>/gi;
+  const rootOpenPattern = /<div\b[^>]*\bid=(["'])root\1[^>]*>/i;
 
   if (!htmlTagPattern.test(template)) {
     throw new Error("Failed to locate <html> tag in template.");
@@ -43,37 +42,69 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
   const htmlOpenTag = htmlAttributes ? `<html ${htmlAttributes}>` : "<html>";
   const withHtmlAttrs = template.replace(htmlTagPattern, htmlOpenTag);
   const withHead = withHtmlAttrs.replace(headClosePattern, `${headTags}</head>`);
-  const rootStart = withHead.indexOf(rootOpenMarker);
+  const rootOpenMatch = rootOpenPattern.exec(withHead);
 
-  if (rootStart === -1) {
+  if (!rootOpenMatch || rootOpenMatch.index < 0) {
     throw new Error("Failed to locate SSR root container opening marker (<div id=\"root\">) in template.");
   }
 
-  const rootContentStart = rootStart + rootOpenMarker.length;
-  divTagPattern.lastIndex = rootContentStart;
-
+  const rootStart = rootOpenMatch.index;
+  const rootContentStart = rootOpenMatch.index + rootOpenMatch[0].length;
   let depth = 1;
+  let cursor = rootContentStart;
+  let rootCloseStart = -1;
   let rootEnd = -1;
-  let match;
 
-  while ((match = divTagPattern.exec(withHead)) !== null) {
-    if (match[0].startsWith("</")) {
+  while (cursor < withHead.length) {
+    const nextTagStart = withHead.indexOf("<", cursor);
+    if (nextTagStart === -1) {
+      break;
+    }
+
+    if (withHead.startsWith("<!--", nextTagStart)) {
+      const commentEnd = withHead.indexOf("-->", nextTagStart + 4);
+      cursor = commentEnd === -1 ? withHead.length : commentEnd + 3;
+      continue;
+    }
+
+    const tagEnd = withHead.indexOf(">", nextTagStart + 1);
+    if (tagEnd === -1) {
+      break;
+    }
+
+    const rawTag = withHead.slice(nextTagStart, tagEnd + 1);
+    const tagNameMatch = /^<\/?\s*([a-zA-Z0-9:-]+)/.exec(rawTag);
+    cursor = tagEnd + 1;
+
+    if (!tagNameMatch || tagNameMatch[1].toLowerCase() !== "div") {
+      continue;
+    }
+
+    const isClosingTag = /^<\s*\//.test(rawTag);
+    const isSelfClosingTag = /\/\s*>$/.test(rawTag);
+
+    if (isClosingTag) {
       depth -= 1;
     } else {
+      if (isSelfClosingTag) {
+        continue;
+      }
+
       depth += 1;
     }
 
     if (depth === 0) {
-      rootEnd = match.index + match[0].length;
+      rootCloseStart = nextTagStart;
+      rootEnd = tagEnd + 1;
       break;
     }
   }
 
-  if (rootEnd === -1) {
+  if (rootCloseStart === -1 || rootEnd === -1) {
     throw new Error("Failed to locate matching closing </div> for SSR root container.");
   }
 
-  return `${withHead.slice(0, rootStart)}<div id="root">${appHtml}</div>${withHead.slice(rootEnd)}`;
+  return `${withHead.slice(0, rootContentStart)}${appHtml}${withHead.slice(rootCloseStart)}`;
 }
 
 if (existsSync(ssrOutDir)) {
@@ -121,6 +152,10 @@ for (const route of prerenderRoutes) {
   const appHtmlLength = renderedRoute?.appHtml?.trim()?.length ?? 0;
   const headTagsLength = renderedRoute?.headTags?.trim()?.length ?? 0;
   const html = injectPrerenderedHtml(template, renderedRoute);
+  const hasMainCloseInApp = renderedRoute?.appHtml?.includes("</main>") ?? false;
+  const hasFooterCloseInApp = renderedRoute?.appHtml?.includes("</footer>") ?? false;
+  const hasMainCloseInOutput = html.includes("</main>");
+  const hasFooterCloseInOutput = html.includes("</footer>");
 
   const outputPath = getOutputPath(route);
   mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -130,7 +165,7 @@ for (const route of prerenderRoutes) {
   generatedFiles.push(relativeOutputPath);
 
   console.log(
-    `[prerender] route=${route} appHtmlNonEmpty=${appHtmlLength > 0} appHtmlLength=${appHtmlLength} headTagsNonEmpty=${headTagsLength > 0} headTagsLength=${headTagsLength} output=${relativeOutputPath}`,
+    `[prerender] route=${route} appHtmlNonEmpty=${appHtmlLength > 0} appHtmlLength=${appHtmlLength} finalHtmlLength=${html.length} headTagsNonEmpty=${headTagsLength > 0} headTagsLength=${headTagsLength} hasMainClosingTag=${hasMainCloseInOutput} hasFooterClosingTag=${hasFooterCloseInOutput} appHadMainClosingTag=${hasMainCloseInApp} appHadFooterClosingTag=${hasFooterCloseInApp} output=${relativeOutputPath}`,
   );
 }
 
