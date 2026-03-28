@@ -48,7 +48,6 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
     throw new Error("Failed to locate SSR root container opening marker (<div id=\"root\">) in template.");
   }
 
-  const rootStart = rootOpenMatch.index;
   const rootContentStart = rootOpenMatch.index + rootOpenMatch[0].length;
   let depth = 1;
   let cursor = rootContentStart;
@@ -67,6 +66,12 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
       continue;
     }
 
+    if (withHead.startsWith("<![CDATA[", nextTagStart)) {
+      const cdataEnd = withHead.indexOf("]]>", nextTagStart + 9);
+      cursor = cdataEnd === -1 ? withHead.length : cdataEnd + 3;
+      continue;
+    }
+
     const tagEnd = withHead.indexOf(">", nextTagStart + 1);
     if (tagEnd === -1) {
       break;
@@ -76,7 +81,27 @@ function injectPrerenderedHtml(template, { appHtml, headTags, htmlAttributes }) 
     const tagNameMatch = /^<\/?\s*([a-zA-Z0-9:-]+)/.exec(rawTag);
     cursor = tagEnd + 1;
 
-    if (!tagNameMatch || tagNameMatch[1].toLowerCase() !== "div") {
+    if (!tagNameMatch) {
+      continue;
+    }
+
+    const tagName = tagNameMatch[1].toLowerCase();
+
+    if (tagName === "script" || tagName === "style" || tagName === "textarea" || tagName === "title") {
+      const isClosingRawTextTag = /^<\s*\//.test(rawTag);
+      const isSelfClosingRawTextTag = /\/\s*>$/.test(rawTag);
+      if (!isClosingRawTextTag && !isSelfClosingRawTextTag) {
+        const closeTag = `</${tagName}>`;
+        const closeTagIndex = withHead.toLowerCase().indexOf(closeTag, cursor);
+        if (closeTagIndex === -1) {
+          break;
+        }
+        cursor = closeTagIndex + closeTag.length;
+      }
+      continue;
+    }
+
+    if (tagName !== "div") {
       continue;
     }
 
@@ -148,12 +173,13 @@ console.log(`[prerender] Resolved prerenderRoutes (${prerenderRoutes.length}):`)
 console.log(JSON.stringify(prerenderRoutes, null, 2));
 
 for (const route of prerenderRoutes) {
-  const renderedRoute = render(route);
-  const appHtmlLength = renderedRoute?.appHtml?.trim()?.length ?? 0;
+  const renderedRoute = await render(route);
+  const appHtml = typeof renderedRoute?.appHtml === "string" ? renderedRoute.appHtml : "";
+  const appHtmlLength = appHtml.length;
   const headTagsLength = renderedRoute?.headTags?.trim()?.length ?? 0;
-  const html = injectPrerenderedHtml(template, renderedRoute);
-  const hasMainCloseInApp = renderedRoute?.appHtml?.includes("</main>") ?? false;
-  const hasFooterCloseInApp = renderedRoute?.appHtml?.includes("</footer>") ?? false;
+  const html = injectPrerenderedHtml(template, { ...renderedRoute, appHtml });
+  const hasMainCloseInApp = appHtml.includes("</main>");
+  const hasFooterCloseInApp = appHtml.includes("</footer>");
   const hasMainCloseInOutput = html.includes("</main>");
   const hasFooterCloseInOutput = html.includes("</footer>");
 
