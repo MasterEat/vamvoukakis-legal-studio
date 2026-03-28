@@ -1,10 +1,14 @@
-import type { ReactNode } from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import { StaticRouter } from "react-router-dom/server";
 
-import { AppContent, createAppQueryClient } from "@/App";
+import AppRoutes from "@/AppRoutes";
+import { createAppQueryClient } from "@/App";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { prerenderRoutes } from "@/lib/routeManifest";
+import { QueryClientProvider } from "@tanstack/react-query";
 
 interface HelmetContext {
   helmet?: {
@@ -16,17 +20,21 @@ interface HelmetContext {
   };
 }
 
-const PassthroughRouter = ({ children }: { children: ReactNode }) => <>{children}</>;
-
 export function render(url: string) {
   const helmetContext: HelmetContext = {};
   const queryClient = createAppQueryClient();
 
   const appHtml = renderToString(
     <HelmetProvider context={helmetContext}>
-      <StaticRouter location={url}>
-        <AppContent Router={PassthroughRouter} queryClient={queryClient} />
-      </StaticRouter>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <StaticRouter location={url}>
+            <AppRoutes />
+          </StaticRouter>
+          <Toaster />
+          <Sonner />
+        </TooltipProvider>
+      </QueryClientProvider>
     </HelmetProvider>,
   );
 
