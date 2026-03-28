@@ -48,37 +48,6 @@ const legalAreas = [
   "Νομικές Συμβουλές",
 ];
 
-const profileStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Εμμανουήλ Βαμβουκάκης",
-  jobTitle: "Δικηγόρος – LL.M Αστικού Δικαίου",
-  description:
-    "Δικηγόρος με διεθνή ακαδημαϊκή κατάρτιση, πολυετή εμπειρία στο ιδιωτικό αστικό δίκαιο και εξατομικευμένη νομική υποστήριξη.",
-  url: "https://advocat.gr/viografiko",
-  image: "https://advocat.gr/images/image2.webp",
-  knowsLanguage: ["Ελληνικά", "Γερμανικά", "Αγγλικά"],
-  alumniOf: [
-    {
-      "@type": "CollegeOrUniversity",
-      name: "Philipps-Universität Marburg",
-    },
-    {
-      "@type": "CollegeOrUniversity",
-      name: "Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών",
-    },
-  ],
-  memberOf: {
-    "@type": "Organization",
-    name: "Δικηγορικός Σύλλογος Αθηνών",
-  },
-  worksFor: {
-    "@type": "LegalService",
-    name: "Δικηγορικό Γραφείο Βαμβουκάκη Εμμανουήλ",
-    url: "https://advocat.gr",
-  },
-};
-
 export default function ProfilePage() {
   const [hasCvPdf, setHasCvPdf] = useState(false);
 
@@ -116,7 +85,6 @@ export default function ProfilePage() {
           { lang: "en", href: "/en/profile" },
           { lang: "de", href: "/de/profil" },
         ]}
-        structuredData={profileStructuredData}
       />
 
       <section className="section-padding bg-background">

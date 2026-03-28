@@ -11,8 +11,6 @@ interface LayoutProps {
 }
 
 const HOME_PATHS = ["/", "/en", "/de"];
-const ARTICLE_PATH_PATTERNS = ["/arthra/:slug", "/arthra/aftonomi-odigisi-efthini-odigou"];
-
 type BannerContent = { title: string; subtitle: string };
 
 const BANNER_CONFIG: { path: string; content: BannerContent }[] = [
@@ -46,7 +44,6 @@ function getBannerContent(pathname: string): BannerContent {
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const isHomePage = HOME_PATHS.includes(location.pathname);
-  const isArticlePage = ARTICLE_PATH_PATTERNS.some((path) => matchPath({ path, end: true }, location.pathname));
   const banner = getBannerContent(location.pathname);
 
   return (
@@ -63,11 +60,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="container-wide relative z-10">
             <div className="max-w-3xl">
               <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-slate-200/70 mb-3">Vamvoukakis Law Office</p>
-              {isArticlePage ? (
-                <h2 className="font-heading text-3xl md:text-4xl text-white mb-3 md:mb-4">{banner.title}</h2>
-              ) : (
-                <h1 className="font-heading text-3xl md:text-4xl text-white mb-3 md:mb-4">{banner.title}</h1>
-              )}
+              <h2 className="font-heading text-3xl md:text-4xl text-white mb-3 md:mb-4">{banner.title}</h2>
               <p className="font-body text-sm md:text-base text-slate-200/85 leading-relaxed">{banner.subtitle}</p>
             </div>
           </div>

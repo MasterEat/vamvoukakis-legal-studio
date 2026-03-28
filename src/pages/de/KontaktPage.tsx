@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { contactDetails, getContactStructuredData } from "@/lib/contactSeo";
+import { contactDetails } from "@/lib/contactSeo";
 
 export default function KontaktPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,7 +60,6 @@ export default function KontaktPage() {
           { lang: "en", href: "/en/contact" },
           { lang: "de", href: "/de/kontakt" },
         ]}
-        structuredData={getContactStructuredData("de", "/de/kontakt")}
       />
 
       <section className="section-padding bg-background">
