@@ -6,6 +6,7 @@ import ProfilePage from "@/pages/ProfilePage";
 import PracticeAreasPage from "@/pages/PracticeAreasPage";
 import { CivilLawPage, CriminalLawPage, CommercialLawPage, RealEstateLawPage } from "@/pages/PracticeDetailPage";
 import DecisionsPage from "@/pages/DecisionsPage";
+import LawLessonsPage from "@/pages/LawLessonsPage";
 import ArticlesPage from "@/pages/ArticlesPage";
 import AutonomousDrivingArticlePage from "@/pages/AutonomousDrivingArticlePage";
 import ArticleDetailPage from "@/pages/ArticleDetailPage";
@@ -44,6 +45,7 @@ const staticRoutes: AppRoute[] = [
   { path: "/emporiko-dikaio", component: CommercialLawPage },
   { path: "/dikaio-akiniton", component: RealEstateLawPage },
   { path: "/apofaseis", component: DecisionsPage },
+  { path: "/mathimata-nomikis", component: LawLessonsPage },
   { path: "/arthra", component: ArticlesPage },
   { path: "/arthra/aftonomi-odigisi-efthini-odigou", component: AutonomousDrivingArticlePage },
   { path: "/arthra/:slug", component: ArticleDetailPage },
