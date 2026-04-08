@@ -1,5 +1,4 @@
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
@@ -116,38 +115,13 @@ export default function LawLessonsPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-secondary">
+      <section id="epikoinonia-mathimata" className="section-padding bg-secondary">
         <div className="container-narrow">
           <div className="gold-divider-left mb-8" />
           <h2 className="font-heading text-2xl md:text-3xl mb-6">Τρόπος διεξαγωγής</h2>
           <p className="text-muted-foreground font-body leading-relaxed text-base md:text-lg">
             Τα μαθήματα πραγματοποιούνται online μέσω WebEx, με ζωντανή διδασκαλία και δυνατότητα άμεσης αλληλεπίδρασης.
           </p>
-        </div>
-      </section>
-
-      <section id="epikoinonia-mathimata" className="section-padding bg-primary">
-        <div className="container-wide">
-          <div className="max-w-3xl mx-auto premium-card bg-background">
-            <h2 className="font-heading text-2xl md:text-3xl mb-8">Επικοινωνία</h2>
-            <div className="space-y-4 font-body text-muted-foreground mb-8">
-              <p className="text-foreground font-heading text-xl">ΒΑΜΒΟΥΚΑΚΗΣ ΕΜΜΑΝΟΥΗΛ</p>
-              <p>ΔΙΚΗΓΟΡΟΣ (ΔΣΑ 24321)</p>
-              <p>ΠΜΔ Αστικού Δικαίου Παν. Αθηνών</p>
-              <p className="flex items-start gap-3"><MapPin size={18} className="text-accent mt-0.5 shrink-0" /> ΓΟΥΝΑΡΗ 5Α, ΚΕΦΑΛΑΡΙ - ΚΗΦΙΣΙΑ</p>
-              <p className="flex items-start gap-3"><Phone size={18} className="text-accent mt-0.5 shrink-0" /> <a className="hover:text-accent transition-colors" href="tel:+306936324806">ΚΙΝ. 693-6324806</a></p>
-              <p className="flex items-start gap-3 break-all"><Mail size={18} className="text-accent mt-0.5 shrink-0" /> <a className="hover:text-accent transition-colors" href="mailto:emmanouil.vamvoukakis@outlook.com">emmanouil.vamvoukakis@outlook.com</a></p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="default" asChild>
-                <Link to="/epikoinonia">Επικοινώνησε για πληροφορίες</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link to="/epikoinonia">Δήλωσε ενδιαφέρον</Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
     </Layout>
