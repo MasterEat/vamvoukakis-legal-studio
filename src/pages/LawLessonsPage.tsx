@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -125,6 +125,7 @@ export default function LawLessonsPage() {
           </p>
         </div>
       </section>
+
     </Layout>
   );
 }
