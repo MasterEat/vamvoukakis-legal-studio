@@ -86,7 +86,7 @@ export default function Header() {
           : GLASS_HEADER_CLASS
       }`}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-20 lg:h-auto lg:py-5">
+      <div className="container-wide flex items-center justify-between h-16 md:h-20">
         <Link
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
@@ -121,7 +121,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex lg:flex-1 lg:ml-8 items-center flex-wrap justify-start content-center gap-x-5 gap-y-2 xl:gap-x-6">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
 
           {navItems.map((item) => (
             <Link
