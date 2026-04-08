@@ -8,7 +8,7 @@ const navItemsEl = [
   { label: "Το Γραφείο", path: "/to-grafeio" },
   { label: "Βιογραφικό", path: "/viografiko" },
   { label: "Τομείς Ειδίκευσης", path: "/tomeis-eidikefsis" },
-  { label: "Αποφάσεις", path: "/apofaseis" },
+  { label: "Μαθήματα Νομικής", path: "/mathimata-nomikis" },
   { label: "Νομικά Άρθρα", path: "/arthra" },
   { label: "Επικοινωνία", path: "/epikoinonia" },
 ];
