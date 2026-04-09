@@ -9,6 +9,7 @@ import DecisionsPage from "@/pages/DecisionsPage";
 import LawLessonsPage from "@/pages/LawLessonsPage";
 import ArticlesPage from "@/pages/ArticlesPage";
 import AutonomousDrivingArticlePage from "@/pages/AutonomousDrivingArticlePage";
+import DeepfakesPersonalityForgeryArticlePage from "@/pages/DeepfakesPersonalityForgeryArticlePage";
 import ArticleDetailPage from "@/pages/ArticleDetailPage";
 import ContactPage from "@/pages/ContactPage";
 import PrivacyPage from "@/pages/PrivacyPage";
@@ -48,6 +49,7 @@ const staticRoutes: AppRoute[] = [
   { path: "/mathimata-nomikis", component: LawLessonsPage },
   { path: "/arthra", component: ArticlesPage },
   { path: "/arthra/aftonomi-odigisi-efthini-odigou", component: AutonomousDrivingArticlePage },
+  { path: "/arthra/psifiaki-plastografia-deepfakes-astikos-kodikas", component: DeepfakesPersonalityForgeryArticlePage },
   { path: "/arthra/:slug", component: ArticleDetailPage },
   { path: "/epikoinonia", component: ContactPage },
   { path: "/politiki-aporritou", component: PrivacyPage },
