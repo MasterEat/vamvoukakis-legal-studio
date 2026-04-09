@@ -21,6 +21,19 @@ export interface LegalArticle {
 
 export const legalArticles: LegalArticle[] = [
   {
+    slug: "psifiaki-plastografia-deepfakes-astikos-kodikas",
+    title: "Η «Ψηφιακή Πλαστογραφία» της Προσωπικότητας | Deepfakes και Αστικός Κώδικας",
+    date: "9 Απριλίου 2026",
+    category: "Νομικά Άρθρα",
+    excerpt:
+      "Ανάλυση για τα deepfakes και την προστασία της προσωπικότητας σύμφωνα με τον Αστικό Κώδικα και τη σύγχρονη νομική πραγματικότητα.",
+    intro:
+      "Η «Ψηφιακή Πλαστογραφία» της Προσωπικότητας: Deepfakes και Αστικός Κώδικας.",
+    heroImage: "/articles/image5.webp",
+    heroImageAlt: "Deepfakes και νομική προστασία της προσωπικότητας",
+    sections: [],
+  },
+  {
     slug: "aftonomi-odigisi-efthini-odigou",
     title:
       "Αυτόνομη οδήγηση με «οδηγό» την Τεχνητή Νοημοσύνη: Πότε ευθύνεται ο οδηγός αν ένα αυτόνομο όχημα προκαλέσει ατύχημα;",
