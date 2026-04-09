@@ -7,11 +7,16 @@ interface SEOHeadProps {
   canonical?: string;
   lang?: string;
   ogType?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
   hrefLangs?: { lang: string; href: string }[] | null;
+  ogImage?: string;
+  twitterImage?: string;
+  appendSiteName?: boolean;
 }
 
 const BASE_URL = "https://advocat.gr";
+const SITE_TITLE_SUFFIX = "Δικηγορικό Γραφείο Βαμβουκάκη";
+const DEFAULT_SOCIAL_IMAGE = "/web-app-manifest-512x512.png";
 
 const hasProtocol = (url: string) => /^https?:\/\//i.test(url);
 
@@ -46,12 +51,17 @@ export default function SEOHead({
   ogType = "website",
   structuredData,
   hrefLangs,
+  ogImage,
+  twitterImage,
+  appendSiteName = true,
 }: SEOHeadProps) {
   const { pathname } = useLocation();
 
-  const fullTitle = `${title} | Δικηγορικό Γραφείο Βαμβουκάκη`;
+  const hasSiteSuffix = title.includes(`| ${SITE_TITLE_SUFFIX}`);
+  const fullTitle = appendSiteName && !hasSiteSuffix ? `${title} | ${SITE_TITLE_SUFFIX}` : title;
   const canonicalPath = normalizePath(canonical ?? pathname);
   const canonicalUrl = toAbsoluteUrl(canonicalPath);
+  const resolvedSocialImage = toAbsoluteUrl(ogImage ?? DEFAULT_SOCIAL_IMAGE);
 
   const alternateLinks = hrefLangs
     ? (() => {
@@ -78,10 +88,12 @@ export default function SEOHead({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content="advocat.gr" />
+      <meta property="og:image" content={resolvedSocialImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={toAbsoluteUrl(twitterImage ?? ogImage ?? DEFAULT_SOCIAL_IMAGE)} />
 
       {alternateLinks?.map((hl) => (
         <link key={`${hl.lang}-${hl.href}`} rel="alternate" hrefLang={hl.lang} href={toAbsoluteUrl(hl.href)} />
