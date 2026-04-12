@@ -86,11 +86,11 @@ export default function Header() {
           : GLASS_HEADER_CLASS
       }`}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-20 gap-4">
+      <div className="mx-auto flex h-16 w-full max-w-[90rem] items-center gap-3 px-4 sm:px-5 md:h-20 md:px-6 lg:px-8 xl:px-10">
         <Link
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
-          className="flex items-center gap-2.5 md:gap-3 pr-2"
+          className="flex shrink-0 items-center gap-2.5 md:gap-3 lg:pr-2"
         >
           <img
             src={logoSymbol}
@@ -121,25 +121,27 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center justify-end ml-auto gap-2 xl:gap-2.5 max-w-[66%]">
-          <div className="flex flex-wrap items-center justify-end content-center gap-x-3 xl:gap-x-3.5 gap-y-1.5">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-[11px] xl:text-xs tracking-widest uppercase font-body leading-none whitespace-nowrap transition-colors duration-300 hover:text-accent ${
-                  location.pathname === item.path
-                    ? "text-accent"
-                    : headerIsTransparent
-                      ? "text-white/85"
-                      : "text-slate-100/85"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-          <div className={`flex shrink-0 items-center gap-1.5 pl-2.5 ml-0.5 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
+        <div className="hidden min-w-0 flex-1 items-center lg:flex">
+          <nav className="flex min-w-0 flex-1 items-center justify-center px-3 xl:px-6">
+            <div className="flex flex-wrap items-center justify-center content-center gap-x-3 gap-y-1.5 xl:gap-x-3.5">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-[11px] xl:text-xs tracking-widest uppercase font-body leading-none whitespace-nowrap transition-colors duration-300 hover:text-accent ${
+                    location.pathname === item.path
+                      ? "text-accent"
+                      : headerIsTransparent
+                        ? "text-white/85"
+                        : "text-slate-100/85"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+          <div className={`flex shrink-0 items-center gap-1.5 border-l pl-3 transition-colors duration-500 xl:ml-2 ${headerIsTransparent ? "border-white/30" : "border-white/25"}`}>
             {(["el", "en", "de"] as const).map((l) => (
               <Link
                 key={l}
@@ -156,11 +158,11 @@ export default function Header() {
               </Link>
             ))}
           </div>
-        </nav>
+        </div>
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden p-2 transition-colors duration-300 ${headerIsTransparent ? "text-white" : "text-slate-100"}`}
+          className={`ml-auto p-2 transition-colors duration-300 lg:hidden ${headerIsTransparent ? "text-white" : "text-slate-100"}`}
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
