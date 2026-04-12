@@ -1,9 +1,15 @@
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 
 export default function LawLessonsPage() {
+  const [showVideo, setShowVideo] = useState(false);
+  const videoId = "eYT8xW4fzfU";
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
   return (
     <Layout>
       <SEOHead
@@ -34,16 +40,41 @@ export default function LawLessonsPage() {
 
             <div className="premium-card p-4 md:p-5 lg:p-6">
               <div className="aspect-video overflow-hidden rounded-sm border border-border bg-black/5">
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube.com/embed/eYT8xW4fzfU"
-                  title="Μαθήματα Νομικής - Προετοιμασία εξετάσεων"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
+                {showVideo ? (
+                  <iframe
+                    className="h-full w-full"
+                    src={embedUrl}
+                    title="Μαθήματα Νομικής - Προετοιμασία εξετάσεων"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                ) : (
+                  <div className="relative h-full w-full">
+                    <img
+                      src={thumbnailUrl}
+                      alt="Προεπισκόπηση βίντεο για μαθήματα νομικής"
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 flex items-center justify-center p-4">
+                      <button
+                        type="button"
+                        onClick={() => setShowVideo(true)}
+                        className="inline-flex items-center gap-2 rounded-sm border border-accent/70 bg-background/95 px-4 py-2 text-sm font-medium text-foreground shadow-sm transition hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      >
+                        <Play size={16} aria-hidden="true" />
+                        Προβολή βίντεο
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                Το παρακάτω βίντεο φιλοξενείται στο YouTube. Με την προβολή του, ενδέχεται να φορτωθεί περιεχόμενο τρίτου παρόχου.
+              </p>
             </div>
           </div>
         </div>
