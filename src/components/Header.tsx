@@ -121,24 +121,25 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex lg:flex-wrap items-center justify-end content-center gap-x-4 xl:gap-x-5 gap-y-2 max-w-[64%]">
-
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`text-[11px] xl:text-xs tracking-widest uppercase font-body transition-colors duration-300 hover:text-accent ${
-                location.pathname === item.path
-                  ? "text-accent"
-                  : headerIsTransparent
-                    ? "text-white/85"
-                    : "text-slate-100/85"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <div className={`flex items-center gap-2 pl-3 ml-1 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
+        <nav className="hidden lg:flex items-center justify-end ml-auto gap-2 xl:gap-2.5 max-w-[66%]">
+          <div className="flex flex-wrap items-center justify-end content-center gap-x-3 xl:gap-x-3.5 gap-y-1.5">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-[11px] xl:text-xs tracking-widest uppercase font-body leading-none whitespace-nowrap transition-colors duration-300 hover:text-accent ${
+                  location.pathname === item.path
+                    ? "text-accent"
+                    : headerIsTransparent
+                      ? "text-white/85"
+                      : "text-slate-100/85"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className={`flex shrink-0 items-center gap-1.5 pl-2.5 ml-0.5 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
             {(["el", "en", "de"] as const).map((l) => (
               <Link
                 key={l}
