@@ -86,7 +86,7 @@ export default function Header() {
           : GLASS_HEADER_CLASS
       }`}
     >
-      <div className="container-wide flex items-center justify-between h-16 md:h-20">
+      <div className="container-wide flex items-center justify-between h-16 md:h-20 gap-4">
         <Link
           to={lang === "en" ? "/en" : lang === "de" ? "/de" : "/"}
           aria-label="Δικηγορικό Γραφείο Εμμανουήλ Βαμβουκάκης"
@@ -121,13 +121,13 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+        <nav className="hidden lg:flex lg:flex-wrap items-center justify-end content-center gap-x-4 xl:gap-x-5 gap-y-2 max-w-[64%]">
 
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`text-xs tracking-widest uppercase font-body transition-colors duration-300 hover:text-accent ${
+              className={`text-[11px] xl:text-xs tracking-widest uppercase font-body transition-colors duration-300 hover:text-accent ${
                 location.pathname === item.path
                   ? "text-accent"
                   : headerIsTransparent
@@ -138,7 +138,7 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <div className={`flex items-center gap-2 pl-4 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
+          <div className={`flex items-center gap-2 pl-3 ml-1 transition-colors duration-500 ${headerIsTransparent ? "border-l border-white/30" : "border-l border-white/25"}`}>
             {(["el", "en", "de"] as const).map((l) => (
               <Link
                 key={l}
