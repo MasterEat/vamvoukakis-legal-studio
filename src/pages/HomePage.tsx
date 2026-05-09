@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import heroImg from "@/assets/hero-law-office.jpg";
 import portraitImg from "../../images/image1.webp";
 import { contactDetails } from "@/lib/contactSeo";
+import { legalArticles } from "./articlesData";
 
 const practiceAreas = [
   { icon: Scale, title: "Αστικό Δίκαιο", desc: "Οικογενειακό δίκαιο, κληρονομικές υποθέσεις, αστικές διαφορές και νομική υποστήριξη σε ζητήματα ιδιωτικού δικαίου.", path: "/tomeis-eidikefsis" },
@@ -33,11 +34,7 @@ const decisions = [
   { title: "Διαφορά Κληρονομικής Διαδοχής", year: "2023", excerpt: "Επίλυση πολύπλοκης κληρονομικής διαφοράς μεταξύ πολλών κληρονόμων." },
 ];
 
-const articles = [
-  { title: "Ο νέος νόμος για τις ηλεκτρονικές συναλλαγές ακινήτων", date: "Φεβρουάριος 2024", excerpt: "Ανάλυση του νομοθετικού πλαισίου που αλλάζει τον τρόπο μεταβίβασης ακινήτων." },
-  { title: "Δικαιώματα καταναλωτή σε ελαττωματικά προϊόντα", date: "Ιανουάριος 2024", excerpt: "Τι προβλέπει η ελληνική και ευρωπαϊκή νομοθεσία για την προστασία του καταναλωτή." },
-  { title: "Αλλαγές στο οικογενειακό δίκαιο: Τι πρέπει να γνωρίζετε", date: "Δεκέμβριος 2023", excerpt: "Οι πρόσφατες τροποποιήσεις στον Αστικό Κώδικα και οι επιπτώσεις τους." },
-];
+const homepageArticles = legalArticles.slice(0, 3);
 
 export default function HomePage() {
   return (
@@ -231,12 +228,12 @@ export default function HomePage() {
             <p className="text-muted-foreground font-body">Νομικά άρθρα και αναλύσεις για τρέχοντα νομοθετικά θέματα.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {articles.map((a, i) => (
-              <div key={i} className="premium-card">
-                <span className="text-xs tracking-widest font-body text-muted-foreground">{a.date}</span>
-                <h3 className="font-heading text-lg mt-3 mb-4">{a.title}</h3>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">{a.excerpt}</p>
-                <Link to="/arthra" className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 hover:gap-3 transition-all">
+            {homepageArticles.map((article) => (
+              <div key={article.slug} className="premium-card">
+                <span className="text-xs tracking-widest font-body text-muted-foreground">{article.date}</span>
+                <h3 className="font-heading text-lg mt-3 mb-4">{article.title}</h3>
+                <p className="text-muted-foreground font-body text-sm leading-relaxed mb-6">{article.excerpt}</p>
+                <Link to={`/arthra/${article.slug}`} className="text-xs tracking-widest uppercase font-body text-accent flex items-center gap-2 hover:gap-3 transition-all">
                   Διαβάστε <ArrowRight size={14} />
                 </Link>
               </div>
